@@ -1,0 +1,43 @@
+
+
+
+.login{
+    height: 500px;
+    width: 600px;
+    /* background-color: rgb(238, 217, 233); */
+    background-image: linear-gradient(to left,rgb(127, 221, 140) 50%,white);
+    margin-top: 100px;
+    border-radius: 20px;
+    border: 3px ridge black;
+}
+.logininfo{
+    margin:30px;
+}
+
+.logindiv{
+    height: 45%;
+    width: 33%;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: black;
+    font-weight: 600;
+    margin-top: 5%;
+    box-shadow: 5px 4px rgb(15, 14, 14);
+}
+
+.formdiv{
+   
+    height: auto;
+    width: auto;
+    /* background-color: white; */
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+.matIcon{
+   margin-left: -30px;
+}
+

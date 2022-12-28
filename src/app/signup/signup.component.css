@@ -1,0 +1,31 @@
+
+.signupcontainer{
+    height: 53%;
+    width: 40%;
+    background-color:white;
+    margin-top: 5%;
+    border: 1px ridge black;
+    border-radius: 10px;
+    box-shadow: 4px 4px 3px rgb(16, 16, 16);
+}
+label{
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: rgba(255, 255, 0, 0.94);
+    border-radius: 10px 4px 10px 4px;
+}
+
+.toCenter{
+    margin-left: 16%;
+}
+
+input.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+div p{
+    color: red;
+}
+
+
+

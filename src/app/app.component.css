@@ -1,0 +1,22 @@
+body{
+    background-image: url("../assets/shopping_bg.jpeg");
+   
+}
+
+.fornav{
+    display: flex;
+    justify-content:flex-end;
+    margin-left: 10px;
+    background-color: rgb(58, 200, 36);
+    font-size: 40px;
+    font-weight: 900px;
+    text-shadow: 0.5px 0.4px red;
+    gap: 5%;
+    /* margin-left: 10px; */
+    padding-right: 10%;
+
+}
+
+
+
+

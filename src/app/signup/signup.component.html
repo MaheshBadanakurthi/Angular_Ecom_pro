@@ -1,0 +1,66 @@
+<div class="container signupcontainer">
+    <div class="container">
+        
+<form action="" [formGroup]="signUpForm">
+    <div>
+        <h1 class="text-center">Sign Up</h1>
+    </div>
+    <div class="toCenter">
+    <div>
+        <label for="" class="form-label">Your Name</label>
+        <input type="text" placeholder="Enter you name" class="form-control w-75" formControlName="user_name"
+           >
+           <div >
+        <p  *ngIf="signUpForm.get('user_name')?.hasError('required') && signUpForm.get('user_name')?.touched">Enter name here</p>
+        <p *ngIf="signUpForm.get('user_name')?.hasError('minlength') && signUpForm.get('user_name')?.touched">Minimum length is 3 characters</p>
+          </div> <!-- <p class=" text-danger " *ngIf="user_name && user_name.invalid && user_name.touched "> Name Should not be empty or not less than 3 characters</p> -->
+    </div> <br>
+    <div>
+        <label for="" class="form-label">Your email</label>
+        <input type="email" placeholder="Enter you E-mail" class="form-control w-75" formControlName="user_mail"
+         >
+         <div >
+            <!-- <p  *ngIf="signUpForm.get('user_mail')?.hasError('required') && signUpForm.get('user_mail')?.touched">Enter email here</p> -->
+            <p  *ngIf="signUpForm.get('user_mail')?.hasError('required') && signUpForm.get('user_mail')?.touched ">Enter a valid mail</p>
+            <p  *ngIf="signUpForm.get('user_mail')?.touched  && !signUpForm.get('user_mail')?.valid ">Invalid email</p>
+            <!-- <p *ngIf="signUpForm.get('user_mail')?.hasError('minlength') && signUpForm.get('user_mail')?.touched">Minimum length is 3 characters</p> -->
+              </div>
+         <!-- <p class="text-danger" *ngIf="user_mail && user_mail.invalid && !user_mail.untouched">Please enter a valid email</p> -->
+    </div> <br>
+    <div>
+        <label for="" class="form-label">Password</label>
+        <input type="password" placeholder="Enter you password" class="form-control w-75" formControlName="user_password"
+          >
+          <div >
+            <p  *ngIf="signUpForm.get('user_password')?.hasError('required') && signUpForm.get('user_password')?.touched">Enter Password here</p>
+            <p *ngIf="signUpForm.get('user_password')?.hasError('minlength') && signUpForm.get('user_password')?.touched">Minimum length is 6 characters</p>
+            <p *ngIf="signUpForm.get('user_password')?.hasError('maxlength') && signUpForm.get('user_password')?.touched">Max length length is 10 characters only.It seems you are crossed</p>
+        </div>
+          <!-- <p class="text-danger" *ngIf="user_password && user_password.invalid && !user_password.untouched">Please enter a valid email</p> -->
+
+    </div> <br>
+    <div>
+        <label for="" class="form-label">Confirm Password</label>
+        <input type="password" placeholder="Confirm Password" class="form-control w-75" formControlName="confirm_pswd"
+          >
+          <div>
+            <p  *ngIf="signUpForm.get('confirm_pswd')?.hasError('required') && signUpForm.get('confirm_pswd')?.touched">Confirm Password here</p>
+          <p *ngIf="user_password?.value!=confirm_pswd?.value && signUpForm.get('confirm_pswd')?.touched"> Password did not match   </p>
+       <p *ngIf="signUpForm.get('confirm_pswd')?.hasError('pattern') && signUpForm.get('confirm_pswd')?.touched"> Password should contain one Number One Capital letter</p>
+        </div>
+          <!-- <p class="text-danger" *ngIf="confirm_pswd && confirm_pswd.invalid && !confirm_pswd.untouched">Please enter a valid email</p> -->
+
+    </div> <br>
+    <div>
+        <br>
+        <input type="checkbox">    <small class="ms-1">I agree all Statements in <a href="#">Terms of service</a></small>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary mt-4 mb-4 ps-4 pe-4" (click)="dataStore()"><b><i>Register</i></b></button>
+    </div>
+    </div>
+</form>
+
+    </div>
+
+</div>

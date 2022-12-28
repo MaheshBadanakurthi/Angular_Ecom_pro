@@ -1,0 +1,35 @@
+<div class="container logindiv">
+  <form action="" [formGroup]="loginForm">
+    <div>
+      <h1 class="text-center text-success ">Log In</h1>
+    </div>
+    <div class="formdiv">
+    <div>
+   <label for="" class="form-label">Email</label>
+      <input type="email" class="form-control w-75" placeholder="Email" formControlName="login_email">
+    </div>
+    <div>
+      <label for="" class="form-label">Password</label>
+      <div class="d-flex">
+        <input  [type]="show_pswd ? 'text' : 'password' " class="form-control w-75 " placeholder="Password" formControlName="login_password" >
+      <mat-icon class="matIcon" (click)="showPswd()">remove_red_eye</mat-icon>
+      </div>
+      <!-- <i class="fa-solid fa-eye"></i> -->
+      
+    </div>
+    <div class="mt-2">
+      <i><a href="#">Forgot Password</a></i>
+    </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" (click)="login()" class="btn btn-success w-50 ">Login</button>
+    </div>
+  
+  </form>
+<div class="mb-4 mt-3">
+  <i> Don't have a account<a routerLink="/signup" routerLinkActive="routerActive"> @Sign Up</a></i>
+</div>
+ 
+</div>
+
+
