@@ -5,14 +5,15 @@
     
 }
 .quote{
-    font-family: "Great Vibes", cursive; font-size: 39px;
-     line-height: 127px; font-weight: normal; 
-     margin-bottom: 0px; margin-top: 10px; 
+    font-family: "Great Vibes", cursive; font-size: 49px;
+     line-height: 107px; 
+     margin-top: 10px; 
     text-align: center; text-shadow: 0 1px 1px #fff;
 }
 
 .producthead i {
-    font-weight: 600;
+    font-weight: 600px;
+    
 }
 .divbody{
     background-color: white;

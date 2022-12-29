@@ -1,5 +1,8 @@
 
-
+.bgimg{
+    background-image: url('https://cdn.wallpapersafari.com/89/94/KycE8k.png');
+    /* background-image: linear-gradient(135deg, #b92b27 10%, #1565C0 100%); */
+}
 
 .login{
     height: 77vh;

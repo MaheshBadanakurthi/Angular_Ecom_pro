@@ -6,20 +6,26 @@ body{
 .fornav{
     display: flex;
     justify-content:flex-end;
-    margin-left: 10px;
-    background-color: rgb(13, 14, 13);
     font-size: 22px;
     font-weight: 900px;
     color: white;
-    height: 40px;
+    height: 80px;
     text-shadow: 0.5px 0.4px red;
     gap: 5%;
-    
-    /* margin-left: 10px; */
     padding-right: 10%;
-
+    background-image: linear-gradient(135deg, #3B2667 10%, #BC78EC 100%);
 }
 
+.cart{
+    
+    color: yellow;
+    font-weight: 600;
+}
 
-
-
+button:hover{
+    background-color: white;
+    color: black;
+    box-shadow: 8px 6px rgb(200, 252, 15);
+    font-size: 22px;
+    border-radius: 2px 22px 2px 22px;
+}
