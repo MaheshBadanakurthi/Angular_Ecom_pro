@@ -17,6 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 // import {MatIconModule} from '@angular/material/icon';
 import {  MatIconModule} from '@angular/material/icon'
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
+import { CommonModule } from '@angular/common'
 
 const myNavigation:Routes=[
  {
@@ -27,6 +30,9 @@ const myNavigation:Routes=[
  },
  {
   path:'signup',component:SignupComponent
+ },
+ {
+  path:'products',component:ProductsComponent
  },
  {
   path:'**',component:HomeComponent
@@ -52,7 +58,9 @@ const myNavigation:Routes=[
     SweetAlert2Module,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
