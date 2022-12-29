@@ -2,21 +2,24 @@
     <p></p>
     <div class="container producthead">
         <h1 class="quote">Shopping means</h1>
-        <i>Not only Leave the stress n anxiety. Its a way showing LOVE towards the Loved One's </i>
+        <i class="ms-5">Not only Leave the stress n anxiety. Its a way showing LOVE towards the Loved One's </i>
     </div>
     <div class="categories">
-        <div> <button class="btn btn-primary">ALL</button> </div>
-        <div> <button class="btn btn-primary">Men</button> </div>
-        <div><button class="btn btn-primary">Women</button> </div>
+        <div> <button class="btn btn-primary categorybutton">ALL</button> </div>
+        <div> <button class="btn btn-primary categorybutton">Men</button> </div>
+        <div><button class="btn btn-primary categorybutton">Women</button> </div>
     </div>
 
-    <div class=" forProduct">
-        <ng-container *ngFor="let product of myProducts">
+    <div *ngFor="let product of myProducts" class=" forProduct">
+        <div >    
             <img src={{product.image}} alt="image" class="productImg">
-            <p><b>{{product.title}}</b></p>
-            <i>Price: <b>{{product.price}}</b></i>
-            <!-- <b> Rating: {{product.rate}}</b> -->
-        </ng-container>
+             <br><b>{{product.title}}</b> <br>
+                <i>Price: <b>{{product.price}} $ </b></i>
+                 <b class="ms-4"> Rating: {{product.rating.rate}}</b> 
+          
+            <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
+        </div>
+
 
     </div>
 </div>

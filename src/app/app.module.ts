@@ -20,7 +20,6 @@ import {  MatIconModule} from '@angular/material/icon'
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { CommonModule } from '@angular/common'
-
 const myNavigation:Routes=[
  {
   path:'',component:HomeComponent
@@ -46,7 +45,8 @@ const myNavigation:Routes=[
     NavbarComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

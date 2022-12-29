@@ -5,14 +5,19 @@
     
 }
 .quote{
-    font-family: "Great Vibes", cursive; font-size: 35px;
-     line-height: 160px; font-weight: normal; 
+    font-family: "Great Vibes", cursive; font-size: 39px;
+     line-height: 127px; font-weight: normal; 
      margin-bottom: 0px; margin-top: 10px; 
     text-align: center; text-shadow: 0 1px 1px #fff;
 }
+
+.producthead i {
+    font-weight: 600;
+}
 .divbody{
-    background-color: antiquewhite;
-    height: 100vh;
+    background-color: white;
+    /* height: 100%; */
+    
 }
 .categories{
     display: flex;
@@ -21,10 +26,10 @@
     margin-top: 1%;
 }
 
-div div button{
+.categorybutton{
     border-radius: 20px 1px 20px 1px ;
 }
-div div button:hover{
+ button:hover{
     background-color: rgb(229, 253, 15);
     box-shadow: 10px 5px rgb(247, 7, 207);
     font-size: 20px;
@@ -33,18 +38,22 @@ div div button:hover{
 }
 
 .forProduct{
-    height: 259px;
+    height: 300px;
     width: 250px;
-    background-color: black;
-    margin-left: 8%;
+    background-color:white;
+
+    margin-left: 4%;
     margin-top: 1%;
     border-radius: 22px;
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-block;
+    
+
 }
 .productImg{
-    height: 70%;
+   
+    height: 170px;
     width: 100%;
+    border-radius: 20px;
 }
 
 
