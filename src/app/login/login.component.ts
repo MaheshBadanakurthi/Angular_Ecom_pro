@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,8 +17,11 @@ export class LoginComponent implements OnInit {
   localStorePswd: any
   myPassword: any
   show_pswd:boolean=false;
+  myLoginValue:any;
+  toShowProducts:boolean=false;
 
-  constructor() {
+
+  constructor( private myroute:Router) {
     // localStorage.getItem('userDetails')
   }
 
@@ -49,39 +55,60 @@ showPswd(){
     console.log(this.loginForm.get('login_password')?.value);
     console.log(this.localStoreEmails);
     console.log(this.localStorePswd);
+if(this.localStoreData){
 
-    for (let i = 0; i < this.localStoreEmails.length; i++) {
-      if (this.loginForm.get('login_email')?.value === this.localStoreEmails[i]) {
-        console.log("Hey matched mail is", this.localStoreEmails[i], "password is", this.localStorePswd[i]);
-        this.myPassword = this.localStorePswd[i];
-        console.log(this.localStoreEmails[i]);
-        
-        if (this.loginForm.get('login_password')?.value === this.myPassword) {
-          console.log("Password matched");
-          Swal.fire({
-            icon: 'success',
-            titleText: 'All details are correct'
-          })
-        }
-        else {
-          console.log("password not matched");
-          Swal.fire({
-            icon: 'error',
-            titleText: ' Please enter valid Password'
-          })
-        }
+  for (let i = 0; i < this.localStoreEmails.length; i++) {
+    if (this.loginForm.get('login_email')?.value === this.localStoreEmails[i]) {
+      console.log("Hey matched mail is", this.localStoreEmails[i], "password is", this.localStorePswd[i]);
+      this.myPassword = this.localStorePswd[i];
+      console.log(this.localStoreEmails[i]);
+      
+      if (this.loginForm.get('login_password')?.value === this.myPassword) {
+        console.log("Password matched");
+        Swal.fire({
+          icon: 'success',
+          titleText: 'All details are correct'
+        })
+        this.myLoginValue=1
+        sessionStorage.setItem('loggedin',this.myLoginValue);
+        this.toShowProducts=false;
+        // below line is used to navigartte to products page after user login
+        // for this we have to import Router and inject in constractor.
+        this.myroute.navigate(['products'])
       }
-
       else {
-        console.log("email is not exist");
-
-        // Swal.fire({
-        //   icon: 'warning',
-        //   titleText: 'Please Provide valid email or password'
-        // })
+        console.log("password not matched");
+        Swal.fire({
+          icon: 'error',
+          titleText: ' Please enter valid Password'
+        })
       }
-
     }
+
+    else {
+      console.log("email is not exist");
+
+      // Swal.fire({
+      //   icon: 'warning',
+      //   titleText: 'Please Provide valid email or password'
+      // })
+    }
+
+  }
+
+
+}
+
+else{
+  Swal.fire({
+    icon:'error',
+    title:'Seems like you do not have an account',
+    titleText:"Please sigh up first "
+    
+    
+  })
+}
+    
 
     // if(this.loginForm.get('login_email')?.value==this.localStoreEmails){
     //   // Swal.fire({

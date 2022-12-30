@@ -19,7 +19,10 @@
 
         </div>
         <div>
-            <a class="nav-link mt-4" routerLink="/products" routerLinkActive="routerActive" ><button class="btn btn-primary">Products</button></a>
+            <a class="nav-link mt-4" routerLink="/products" routerLinkActive="routerActive" ><button class="btn btn-primary" [hidden]="productShow">Products</button></a>
+        </div>
+        <div>
+            <a class="nav-link mt-4" routerLink="/logout" routerLinkActive="routerActive" ><button class="btn btn-primary" [hidden]="logoutShow">Logout</button></a>
         </div>
         
     </div>

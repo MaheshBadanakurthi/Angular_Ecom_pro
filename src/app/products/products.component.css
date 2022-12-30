@@ -10,7 +10,9 @@
      margin-top: 10px; 
     text-align: center; text-shadow: 0 1px 1px #fff;
 }
-
+img:hover{
+    cursor: pointer;
+}
 .producthead i {
     font-weight: 600px;
     

@@ -55,7 +55,7 @@
           <div>
             <p *ngIf="signUpForm.get('confirm_pswd')?.hasError('required') && signUpForm.get('confirm_pswd')?.touched">
               Confirm Password here</p>
-            <p *ngIf="user_password?.value!=confirm_pswd?.value && signUpForm.get('confirm_pswd')?.touched"> Password
+            <p *ngIf="user_password?.value != confirm_pswd?.value && signUpForm.get('confirm_pswd')?.touched"> Password
               did not match </p>
             <p *ngIf="signUpForm.get('confirm_pswd')?.hasError('pattern') && signUpForm.get('confirm_pswd')?.touched">
               Password should contain one Number One Capital letter</p>

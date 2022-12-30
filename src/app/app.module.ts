@@ -20,7 +20,10 @@ import {  MatIconModule} from '@angular/material/icon'
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { CommonModule } from '@angular/common'
-
+import { ProductAuthService } from './product-auth.service';
+import { LogoutComponent } from './logout/logout.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 
 const myNavigation:Routes=[
@@ -34,7 +37,16 @@ const myNavigation:Routes=[
   path:'signup',component:SignupComponent
  },
  {
-  path:'products',component:ProductsComponent
+  path:'products',component:ProductsComponent, canActivate:[ProductAuthService]
+ },
+ {
+  path:'logout',component:LogoutComponent, canActivate:[ProductAuthService]
+ },
+ {
+  path:'resetpassword',component:ResetpasswordComponent
+ },
+ {
+  path:'productdetails',component:ProductdetailsComponent
  },
  {
   path:'**',component:HomeComponent
@@ -49,7 +61,10 @@ const myNavigation:Routes=[
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ProductsComponent
+    ProductsComponent,
+    LogoutComponent,
+    ResetpasswordComponent,
+    ProductdetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +80,7 @@ const myNavigation:Routes=[
     HttpClientModule,
     CommonModule
   ],
-  providers: [],
+  providers: [ProductAuthService,LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

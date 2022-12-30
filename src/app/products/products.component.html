@@ -2,7 +2,7 @@
     <p></p>
     <div class="container producthead">
         <h1 class="quote">Shopping means</h1>
-        <p class="text-end"> <b>Not only Leave the stress n anxiety. Its a way showing LOVE towards the Loved One's</b> </p>
+        <p class="text-end"> <b>Not only Leave the stress n anxiety. Its a way of showing LOVE towards the Loved One's</b> </p>
      </div>
     <div class="categories">
         <div> <button class="btn btn-primary categorybutton">ALL</button> </div>
@@ -10,9 +10,9 @@
         <div><button class="btn btn-primary categorybutton">Women</button> </div>
     </div>
 
-    <div *ngFor="let product of myProducts" class=" forProduct">
+    <div *ngFor="let product of myProducts ; let i=index" class=" forProduct">
         <div >    
-            <img src={{product.image}} alt="image" class="productImg">
+            <img src={{product.image}} alt="image" class="productImg" (click)="showProductDetails()" routerLink="/productdetails" routerLinkActive="reouterLink">
              <br><b>{{product.title}}</b> <br>
                 <i>Price: <b>{{product.price}} $ </b></i>
                  <b class="ms-4"> Rating: {{product.rating.rate}}</b> 
@@ -23,3 +23,11 @@
 
     </div>
 </div>
+
+
+
+
+
+
+
+
