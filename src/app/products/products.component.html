@@ -2,8 +2,9 @@
     <p></p>
     <div class="container producthead">
         <h1 class="quote">Shopping means</h1>
-        <p class="text-end"> <b>Not only Leave the stress n anxiety. Its a way of showing LOVE towards the Loved One's</b> </p>
-     </div>
+        <p class="text-end"> <b>Not only Leave the stress n anxiety. Its a way of showing LOVE towards the Loved
+                One's</b> </p>
+    </div>
     <div class="categories">
         <div> <button class="btn btn-primary categorybutton">ALL</button> </div>
         <div> <button class="btn btn-primary categorybutton">Men</button> </div>
@@ -11,23 +12,56 @@
     </div>
 
     <div *ngFor="let product of myProducts ; let i=index" class=" forProduct">
-        <div >    
-            <img src={{product.image}} alt="image" class="productImg" (click)="showProductDetails()" routerLink="/productdetails" routerLinkActive="reouterLink">
-             <br><b>{{product.title}}</b> <br>
-                <i>Price: <b>{{product.price}} $ </b></i>
-                 <b class="ms-4"> Rating: {{product.rating.rate}}</b> 
-          
+        <div>
+            <img src={{product.image}} alt="image" class="productImg" (click)="triggerModal(modalData)"
+            data-bs-toggle="modal" data-bs-target="#product_Details" >
+              
+            <br><b>{{product.title}}</b> <br>
+            <i>Price: <b>{{product.price}} $ </b></i>
+            <b class="ms-4"> Rating: {{product.rating.rate}}</b>
+
             <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
         </div>
-
-
     </div>
+
+     <!-- Display popup for product details ****************** -->
+     <div class="modal fade" id="product_Details" tabindex="-1" aria-labelledby="productlabelledLabel"
+     aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modale-header">
+                 <h4 class="modal-title"> Product Details </h4>
+             </div>
+             <div class="modal-body">
+                 <!-- <img src={{myProducts[i].image}} alt="image" class="productImg" 
+                      >
+                 <br><b>{{myProducts[i].title}}</b> <br>
+                 <i>Price: <b>{{myProducts[i].price}} $ </b></i>
+                 <b class="ms-4"> Rating: {{myProducts[i].rating.rate}}</b> -->
+                    Modal Body
+             </div>
+         </div>
+     </div>
+ </div>
+
+
+ <button class="btn btn-danger" (click)="triggerModal(modalData)">Open Modal</button>
+
+ <ng-template #modalData let-modal>
+   <div class="modal-header">
+        <h4 class="text-center">Product Details</h4>
+   </div>
+   <!-- <div class="modal-body">
+    <img src={{myProducts[i].image}} alt="image" class="productImg">
+    <br><b>{{myProducts[i].title}}</b> <br>
+    <i>Price: <b>{{myProducts[i].price}} $ </b></i>
+    <b class="ms-4"> Rating: {{myProducts[i].rating.rate}}</b>
+   </div> -->
+   <div class="modal-footer">
+     <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+   </div>
+ </ng-template>
+
+
+
 </div>
-
-
-
-
-
-
-
-

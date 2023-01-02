@@ -24,7 +24,7 @@ import { ProductAuthService } from './product-auth.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
-
+import { MatDialogModule } from '@angular/material/dialog'
 
 const myNavigation:Routes=[
  {
@@ -78,7 +78,8 @@ const myNavigation:Routes=[
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MatDialogModule
   ],
   providers: [ProductAuthService,LoginComponent],
   bootstrap: [AppComponent]

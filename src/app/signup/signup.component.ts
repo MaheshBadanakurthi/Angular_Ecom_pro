@@ -43,6 +43,7 @@ export class SignupComponent implements OnInit {
     this.nameValid = true;
     console.log(this.user_password?.value);
     console.log(this.confirm_pswd?.value);
+// console.log("My status",this.signUpForm.valid);
 
     if (this.signUpForm.valid) {
 
