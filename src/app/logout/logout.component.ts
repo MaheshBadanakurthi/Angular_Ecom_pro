@@ -22,7 +22,9 @@ logout(){
       this.homeroute.navigate(['home'])
       
   }
-
+  toProducts(){
+    this.homeroute.navigate(['products'])
+  }
 
 
 }

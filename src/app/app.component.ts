@@ -28,7 +28,7 @@ export class AppComponent implements  OnInit,DoCheck{
 ngDoCheck(): void {
   this.forLoggin =  sessionStorage.getItem('loggedin')
       this.forlog=JSON.parse(this.forLoggin)
-      console.log('working Do check');
+      // console.log('working Do check');
       
       if(this.forlog){
         this.productShow=false;

@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.localStoreData = localStorage.getItem('userDetails')
     this.localStoreDataJSONform = JSON.parse(this.localStoreData)
     if (this.localStoreDataJSONform) {
-      this.localStoreEmails = this.localStoreDataJSONform.map((each: any) => `${each.useremail}`)
+      this.localStoreEmails = this.localStoreDataJSONform.map( (each: any) => `${each.useremail}`)
     }
     if (this.localStoreDataJSONform) {
       this.localStorePswd = this.localStoreDataJSONform.map((each: any) => `${each.userpswd}`)
@@ -88,10 +88,10 @@ if(this.localStoreData){
     else {
       console.log("email is not exist");
 
-      // Swal.fire({
-      //   icon: 'warning',
-      //   titleText: 'Please Provide valid email or password'
-      // })
+      Swal.fire({
+        icon: 'warning',
+        titleText: 'Please Provide valid email or password'
+      })
     }
 
   }

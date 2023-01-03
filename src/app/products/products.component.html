@@ -13,50 +13,33 @@
 
     <div *ngFor="let product of myProducts ; let i=index" class=" forProduct">
         <div>
-            <img src={{product.image}} alt="image" class="productImg" (click)="triggerModal(modalData)"
+            <img src={{product.image}} alt="image" class="productImg" (click)="showProductDetails(modalData,i)"
             data-bs-toggle="modal" data-bs-target="#product_Details" >
               
             <br><b>{{product.title}}</b> <br>
             <i>Price: <b>{{product.price}} $ </b></i>
             <b class="ms-4"> Rating: {{product.rating.rate}}</b>
-
-            <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
+          <div class="d-flex">
+            
+            <p> <button class="btn btn-primary  text-center ms-4">Buy</button> </p>
+            <p> <button class="btn btn-primary  text-center ms-4" (click)="addToCart(i)"> 
+              <fa-icon [icon]="faCartIcon" style="font-size:15px; color: black; " class="me-2"> </fa-icon>Add Cart</button> </p>
+          </div>
+            <!-- <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
+            <p> <button class="btn btn-primary w-75 text-center ms-4">Add to Cart</button> </p> -->
         </div>
     </div>
-
-     <!-- Display popup for product details ****************** -->
-     <div class="modal fade" id="product_Details" tabindex="-1" aria-labelledby="productlabelledLabel"
-     aria-hidden="true">
-     <div class="modal-dialog">
-         <div class="modal-content">
-             <div class="modale-header">
-                 <h4 class="modal-title"> Product Details </h4>
-             </div>
-             <div class="modal-body">
-                 <!-- <img src={{myProducts[i].image}} alt="image" class="productImg" 
-                      >
-                 <br><b>{{myProducts[i].title}}</b> <br>
-                 <i>Price: <b>{{myProducts[i].price}} $ </b></i>
-                 <b class="ms-4"> Rating: {{myProducts[i].rating.rate}}</b> -->
-                    Modal Body
-             </div>
-         </div>
-     </div>
- </div>
-
-
- <button class="btn btn-danger" (click)="triggerModal(modalData)">Open Modal</button>
 
  <ng-template #modalData let-modal>
    <div class="modal-header">
         <h4 class="text-center">Product Details</h4>
    </div>
-   <!-- <div class="modal-body">
-    <img src={{myProducts[i].image}} alt="image" class="productImg">
-    <br><b>{{myProducts[i].title}}</b> <br>
-    <i>Price: <b>{{myProducts[i].price}} $ </b></i>
-    <b class="ms-4"> Rating: {{myProducts[i].rating.rate}}</b>
-   </div> -->
+   <div class="modal-body">
+    <img src={{myProducts[prod_index].image}} alt="image" class="product_Details">
+    <br><b>{{myProducts[prod_index].title}}</b> <br>
+    <i>Price: <b>{{myProducts[prod_index].price}} $ </b></i>
+    <b class="ms-4"> Rating: {{myProducts[prod_index].rating.rate}}</b>
+   </div>
    <div class="modal-footer">
      <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
    </div>

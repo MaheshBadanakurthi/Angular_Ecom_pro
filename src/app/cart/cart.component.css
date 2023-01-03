@@ -1,0 +1,25 @@
+.cartbg{
+    background-image: linear-gradient(111deg, #e4a745 10%, #f9f5fb 100%);
+  
+}
+.addCartBg{
+    background-image: url('https://png.pngtree.com/back_origin_pic/03/65/01/3bc3dbe72018ecfe76f0699405309178.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.cartProduct{
+    margin: 0px auto;
+    margin-top: 25px;
+}
+.productImg{
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+}
+
+.ProductDesc{
+    width: 100px;
+}
+
+

@@ -66,14 +66,10 @@ this.pswdLocalStore=this.LocalStoreData.map((item:any)=>   `${item.userpswd}` )
             console.log(this.LocalStoreDataObj);
             // this.LocalStoreDataObj[i].userpswd=this.resetPswd?.value
             console.log("HEREEEE",this.LocalStoreDataObj);
-            
-            
-
 
     }
     else{
       console.log('details are not matched');
-      
       // Swal.fire({
       //   icon:'warning',
       //   title:'OOoops... Details are not matched   try again'
@@ -81,14 +77,13 @@ this.pswdLocalStore=this.LocalStoreData.map((item:any)=>   `${item.userpswd}` )
       // })
     }
   }
-  
-
 
   this.resetForm.reset()
-  
-  
 }
 
-
+tologin(){
+  
+  this.toLogin.navigate(['/login'])
+}
 
 }

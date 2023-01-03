@@ -23,8 +23,10 @@ import { CommonModule } from '@angular/common'
 import { ProductAuthService } from './product-auth.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { ProductdetailsComponent } from './productdetails/productdetails.component';
-import { MatDialogModule } from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog';
+import { AdminComponent } from './admin/admin.component';
+import { CartComponent } from './cart/cart.component'
+import { CartService } from './cart.service';
 
 const myNavigation:Routes=[
  {
@@ -45,8 +47,9 @@ const myNavigation:Routes=[
  {
   path:'resetpassword',component:ResetpasswordComponent
  },
+ { path:'cart',component:CartComponent},
  {
-  path:'productdetails',component:ProductdetailsComponent
+  path:'admin',component:AdminComponent
  },
  {
   path:'**',component:HomeComponent
@@ -64,7 +67,9 @@ const myNavigation:Routes=[
     ProductsComponent,
     LogoutComponent,
     ResetpasswordComponent,
-    ProductdetailsComponent
+    AdminComponent,
+    CartComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -79,9 +84,9 @@ const myNavigation:Routes=[
     MatIconModule,
     HttpClientModule,
     CommonModule,
-    MatDialogModule
+    FontAwesomeModule
   ],
-  providers: [ProductAuthService,LoginComponent],
+  providers: [ProductAuthService,LoginComponent,CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

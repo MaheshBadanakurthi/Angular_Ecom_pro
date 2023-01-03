@@ -1,7 +1,9 @@
 .bgimg{
-    background-image: url('https://wallpaperaccess.com/full/2593163.png');
+    background-image: url('https://img.freepik.com/free-vector/banner-online-shopping-with-gift-platform-cart-with-shopping-bag-isolated-white-background-vector-illustration_548887-187.jpg?w=1060&t=st=1672738102~exp=1672738702~hmac=6c7c3dc74444329136f94e6a1dfcab4ae7b5ced005f7a7926101d5940ee9a5e5');
     height: 100%;
     width: 100%;
+    background-size:cover;
+    background-repeat: no-repeat;
 }
 
 /* https://www.ti-insight.com/wp-content/uploads/2020/02/Global-e-commerce-Report-image-1024x683-1.jpg */

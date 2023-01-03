@@ -58,7 +58,11 @@ img:hover{
     width: 100%;
     border-radius: 20px;
 }
-
+.product_Details{
+    height: 55%;
+    width: 100%;
+    border-radius: 20px;
+}
 
 
 

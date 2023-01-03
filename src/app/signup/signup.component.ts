@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  constructor(private myrout:Router){  }
   ngOnInit(): void {
 
   }
@@ -52,9 +54,10 @@ export class SignupComponent implements OnInit {
         useremail: this.user_mail?.value,
         userpswd: this.user_password?.value
       }
-
+      console.log(this.localStoragArr);
+      
       this.localStoragArr.push(this.userDetails)
-
+      console.log(this.localStoragArr);
       localStorage.setItem("userDetails", JSON.stringify(this.localStoragArr))
       this.signUpForm.reset()
 
@@ -64,7 +67,8 @@ export class SignupComponent implements OnInit {
         text: 'You have signup successfully Go for Log In Now',
 
       })
-
+      // after successful log in user can navigate to log in page
+      this.myrout.navigate(['login'])
 
     }
     else {
