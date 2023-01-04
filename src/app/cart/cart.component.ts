@@ -1,17 +1,17 @@
-import { Component,OnInit} from '@angular/core';
+import { Component,OnInit,DoCheck} from '@angular/core';
 import { CartService } from '../cart.service';
-
+import { faTrashRestore } from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit,DoCheck {
   cartArr:any;
   noOfItems:number=1
-  
+  faRemove=faTrashRestore
   totalCost:number=0
-
+  priceArr=[]
   constructor( private toCartArr:CartService ) {    }
 // when Cart component loads in browser by default ngOnint  Loads first.
 ngOnInit(): void {
@@ -19,17 +19,25 @@ ngOnInit(): void {
   //  this.toCartArr.myCart  it is coming from Cart service.
   // We are looping  CartArr which store data from Cart service
   this.cartArr=this.toCartArr.myCart;
+}
+ 
+ngDoCheck(): void {
+console.log();
 
+//  console.log( [1,4,7,2,16].reduce((s,x)=>(s+x)));
+ 
+  // this.totalPriceArr.push()
+  
 }
 
-
-increment(){
+increment(Product:any){
   
   if(this.noOfItems<5){
-    this.noOfItems+=1
+    this.noOfItems+=1;
+  
   }
 }
-decrement(){
+decrement(Product:any){
   
   if(this.noOfItems!=1){
     this.noOfItems-=1

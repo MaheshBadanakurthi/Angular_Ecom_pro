@@ -27,6 +27,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component'
 import { CartService } from './cart.service';
+import { SellingComponent } from './selling/selling.component';
 
 const myNavigation:Routes=[
  {
@@ -49,7 +50,7 @@ const myNavigation:Routes=[
  },
  { path:'cart',component:CartComponent},
  {
-  path:'admin',component:AdminComponent
+  path:'selling',component:SellingComponent
  },
  {
   path:'**',component:HomeComponent
@@ -69,6 +70,7 @@ const myNavigation:Routes=[
     ResetpasswordComponent,
     AdminComponent,
     CartComponent,
+    SellingComponent,
     
   ],
   imports: [

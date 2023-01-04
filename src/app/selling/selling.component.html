@@ -1,0 +1,101 @@
+<div>
+    <div class="container sellingHead">
+        <h2 class="text-center pt-5 fs-2"> Selling Products</h2>
+    </div>
+    <div>
+        <button class="btn btn-primary ms-5 mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#add_product_Details"
+            (click)="addProductDetails(add_product_Details)">Add Product</button>
+    </div>
+    <div>
+        <table class="table table-primary table-bordered ms-5 ml-5">
+            <thead class="text-center">
+                <th>P_Id</th>
+                <th>P_Name</th>
+                <th>P_Desc</th>
+                <th>P_Price</th>
+                <th>Action</th>
+            </thead>
+            <tbody class="ps-5 text-center" *ngFor="let product of sellingProductsArr ; let i=index">
+                <td style="width: 10%;">{{product.pro_id}}</td>
+                <td style="width: 13%;"> {{product.pro_name}} </td>
+                <td style="width: 20%;"> {{product.pro_desc}} </td>
+                <td style="width: 10%;"> {{product.pro_price}} </td>
+                <td style="width: 30%;">
+                    <button class="btn btn-primary text-black"><fa-icon [icon]="faCart"></fa-icon></button>
+                    <button class="btn btn-primary text-black ms-2" (click)="edit_Pro_Details(Edit_product_Details,i)"
+                        data-bs-toggle="modal" data-bs-target="#Edit_product_Details">
+                        <fa-icon [icon]="faEdit"></fa-icon></button>
+                    <button class="btn btn-danger text-black ms-2" (click)="productRemove(i)"> <fa-icon
+                            [icon]="faDelete"></fa-icon> </button>
+                </td>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- below is for add product model -->
+<ng-template #add_product_Details let-model class="modal-content">
+    <div class="modelProduct">
+        <div class="text-center">
+            <h2 class="text-danger"> Add Product details</h2>
+        </div>
+        <form action="" [formGroup]="product_form" class="text-center">
+            <div>
+                <input type="number" class="form-control w-75" placeholder="Enter Product ID" formControlName="pro_Id">
+            </div> <br>
+            <div>
+                <input type="text" class="form-control w-75" placeholder="Enter Product Name"
+                    formControlName="pro_Name">
+            </div> <br>
+            <div>
+                <input type="text" class="form-control w-75" placeholder="Enter Product Desc"
+                    formControlName="pro_Desc">
+            </div> <br>
+            <div>
+                <input type="number" class="form-control w-75 mb-3" placeholder="Enter Product Price"
+                    formControlName="pro_Price">
+            </div> <br>
+            <div class="d-flex">
+                <button class="btn btn-danger " (click)="closeModel()">Cancel</button>
+                <button class="btn btn-success ms-5" (click)="addProDetails()">AddDetails</button>
+            </div>
+        </form>
+    </div>
+
+</ng-template>
+
+
+<!--  below is for edit model -->
+
+<ng-template #Edit_product_Details let-model class="modal-content">
+    <div class="modelProduct">
+        <div class="text-center">
+            <h2 class="text-danger"> Add Product details</h2>
+        </div>
+        <form action=""  class="text-center">
+
+            <div>
+                <input type="number" class="form-control w-75" placeholder="Enter Product ID" 
+                 value="{{ editPro_id}}" [(ngModel)]="editPro_id" name="editProId"><br>
+    
+                <input type="text" class="form-control w-75" placeholder="Enter Product Name" 
+                 value="{{ editPro_name}}" [(ngModel)]="editPro_name" name="editProName"><br>
+    
+                <input type="text" class="form-control w-75" placeholder="Enter Product Desc"
+                  value="{{ editPro_desc}}" [(ngModel)]="editPro_desc" name="editProDesc"><br>
+
+                <input type="number" class="form-control w-75 mb-3" placeholder="Enter Product Price"
+                      value="{{ editPro_price}}" [(ngModel)]="editPro_price" name="editProPrice"><br>
+                <div class="newFeild">
+                    
+                </div>
+                <button class="btn btn-primary float-end me-5" (click)="addField()"> +  </button>
+            </div>
+            <div class="d-flex mt-5">
+                <button class="btn btn-danger ps-3 ms-5 mb-3" (click)="closeModel()">Cancel</button>
+                <button class="btn btn-success ms-5 mb-3" (click)="updateEditedDetails()">AddDetails</button>
+            </div>
+        </form>
+    </div>
+
+</ng-template>
