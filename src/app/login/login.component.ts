@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
@@ -51,10 +50,12 @@ showPswd(){
   this.show_pswd=!this.show_pswd
 }
   login() {
-    console.log(this.loginForm.get('login_email')?.value);
-    console.log(this.loginForm.get('login_password')?.value);
-    console.log(this.localStoreEmails);
-    console.log(this.localStorePswd);
+
+    // console.log(this.loginForm.get('login_email')?.value);
+    // console.log(this.loginForm.get('login_password')?.value);
+    // console.log(this.localStoreEmails);
+    // console.log(this.localStorePswd);
+
 if(this.localStoreData){
 
   for (let i = 0; i < this.localStoreEmails.length; i++) {
@@ -62,36 +63,38 @@ if(this.localStoreData){
       console.log("Hey matched mail is", this.localStoreEmails[i], "password is", this.localStorePswd[i]);
       this.myPassword = this.localStorePswd[i];
       console.log(this.localStoreEmails[i]);
-      
+
       if (this.loginForm.get('login_password')?.value === this.myPassword) {
-        console.log("Password matched");
+        // console.log("Password matched");
         Swal.fire({
           icon: 'success',
           titleText: 'All details are correct'
         })
-        this.myLoginValue=1
-        sessionStorage.setItem('loggedin',this.myLoginValue);
-        this.toShowProducts=false;
+        this.myLoginValue = 1
+        sessionStorage.setItem('loggedin', this.myLoginValue);
+        this.toShowProducts = false;
         // below line is used to navigartte to products page after user login
         // for this we have to import Router and inject in constractor.
         this.myroute.navigate(['products'])
+        break;
       }
       else {
-        console.log("password not matched");
+        // console.log("password not matched");
         Swal.fire({
           icon: 'error',
           titleText: ' Please enter valid Password'
         })
+        break;
       }
     }
 
     else {
-      console.log("email is not exist");
-
+      // console.log("email is not exist");
       Swal.fire({
         icon: 'warning',
         titleText: 'Please Provide valid email or password'
-      })
+      });
+      
     }
 
   }
@@ -109,14 +112,8 @@ else{
   })
 }
     
+}
 
-    // if(this.loginForm.get('login_email')?.value==this.localStoreEmails){
-    //   // Swal.fire({
-    //   //   icon:'error',
-    //   //   titleText:'Credential are does not exist'
 
-    //   // })
-    // }
 
-  }
 }

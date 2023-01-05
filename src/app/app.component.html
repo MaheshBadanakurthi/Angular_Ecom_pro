@@ -6,29 +6,29 @@
        <marquee behavior="scroll" scrollamount="3" direction="right" > <mat-icon class="walk"> directions_walk</mat-icon>  <mat-icon class="cart mt-5">local_grocery_store</mat-icon>   </marquee>
        <!-- <img src="https://tse1.mm.bing.net/th?id=OIP.zYqzWWh9L_z7FauYuXQedwHaHa&pid=Api&P=0" alt=""  > -->
         <div>
-            <a class="nav-link mt-4" routerLink="" routerLinkActive="routerActive"><button class="btn btn-primary">Home</button></a>
+            <a class="nav-link mt-4" routerLink="" routerLinkActive="routerActive"><button class="btn btn-outline-primary">Home</button></a>
 
         </div>
         
         <div>
-            <a class="nav-link mt-4" routerLink="/login" routerLinkActive="routerActive"><button class="btn btn-primary">LogIn</button></a>
+            <a class="nav-link mt-4" routerLink="/login" routerLinkActive="routerActive"><button class="btn btn-outline-success text-info">LogIn</button></a>
 
         </div>
         <div>
-            <a class="nav-link mt-4" routerLink="/signup" routerLinkActive="routerActive" ><button class="btn btn-primary">SignUp</button></a>
+            <a class="nav-link mt-4" routerLink="/signup" routerLinkActive="routerActive" ><button class="btn btn-outline-info">SignUp</button></a>
 
         </div>
         <div>
-            <a class="nav-link mt-4" routerLink="/products" routerLinkActive="routerActive" ><button class="btn btn-primary" [hidden]="productShow">Products</button></a>
+            <a class="nav-link mt-4" routerLink="/products" routerLinkActive="routerActive" ><button class="btn btn-outline-success text-black" [hidden]="productShow">Products</button></a>
         </div>
         <div>
-            <a class="nav-link mt-4" routerLink="/cart" routerLinkActive="routerActive" ><button class="btn btn-primary" [hidden]="productShow"> MyCart</button></a>
+            <a class="nav-link mt-4" routerLink="/cart" routerLinkActive="routerActive" ><button class="btn btn-outline-warning text-black" [hidden]="productShow"> MyCart</button></a>
         </div>
         <div>
-            <a class="nav-link mt-4" routerLink="/logout" routerLinkActive="routerActive" ><button class="btn btn-primary" [hidden]="logoutShow">Logout</button></a>
+            <a class="nav-link mt-4" routerLink="/logout" routerLinkActive="routerActive" ><button class="btn btn-outline-danger" [hidden]="logoutShow">Logout</button></a>
         </div>
         <div>
-            <a class="nav-link mt-4" routerLink="/selling" routerLinkActive="routerActive" ><button class="btn btn-primary" [hidden]="logoutShow">Selling</button></a>
+            <a class="nav-link mt-4" routerLink="/selling" routerLinkActive="routerActive" ><button class="btn btn-outline-warning text-black" [hidden]="logoutShow">Selling</button></a>
         </div>
         
     </div>

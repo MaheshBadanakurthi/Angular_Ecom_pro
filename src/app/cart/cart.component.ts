@@ -1,4 +1,4 @@
-import { Component,OnInit,DoCheck} from '@angular/core';
+import { Component,OnInit,DoCheck,ViewChild, ElementRef} from '@angular/core';
 import { CartService } from '../cart.service';
 import { faTrashRestore } from '@fortawesome/free-solid-svg-icons'
 @Component({
@@ -10,8 +10,10 @@ export class CartComponent implements OnInit,DoCheck {
   cartArr:any;
   noOfItems:number=1
   faRemove=faTrashRestore
-  totalCost:number=0
+  Pro_Cost:number;
   priceArr=[]
+  
+
   constructor( private toCartArr:CartService ) {    }
 // when Cart component loads in browser by default ngOnint  Loads first.
 ngOnInit(): void {
@@ -22,7 +24,8 @@ ngOnInit(): void {
 }
  
 ngDoCheck(): void {
-console.log();
+
+console.log(  );
 
 //  console.log( [1,4,7,2,16].reduce((s,x)=>(s+x)));
  
@@ -31,7 +34,6 @@ console.log();
 }
 
 increment(Product:any){
-  
   if(this.noOfItems<5){
     this.noOfItems+=1;
   
@@ -43,6 +45,7 @@ decrement(Product:any){
     this.noOfItems-=1
   }
 }
+
 
   // Removing item index is passing from Cart component but delets from Cart service.
   removeItem(removeIndex:number){

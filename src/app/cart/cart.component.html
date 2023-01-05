@@ -21,7 +21,10 @@
                     <button class="btn btn-danger bg-black" (click)="increment(item)">  +  </button>
                 </td>
 
-                <td class="pt-4" > <b>{{noOfItems * item.price}} </b> <i>$</i> </td>
+                <td class="pt-4" > 
+                   <b>{{noOfItems*item.price}}</b>
+                    <i>$</i> </td>
+                    <!-- <b class="myPriceValue">{{noOfItems * item.price}} </b>  -->
 
                 <td class="pt-4"> <button class="btn btn-danger " (click)="removeItem(i)">
                         <fa-icon [icon]="faRemove"> </fa-icon> </button> </td>
@@ -31,7 +34,7 @@
                 <td> </td>
                 <td> </td>
                 <td> </td>
-                <td class="pt-4"> <b> {{totalCost}} </b> </td>
+                <td class="pt-4"> <b>  </b> </td>
                 <td> </td>
             </tfoot>
 

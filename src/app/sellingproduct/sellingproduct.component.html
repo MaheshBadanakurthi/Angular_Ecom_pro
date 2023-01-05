@@ -1,0 +1,23 @@
+<div class="container">
+
+    <div>
+        <div *ngFor="let sellProduct of lsForSellProduct" class=" forProduct">
+            <div>
+                <img src={{sellProduct.pro_url}} alt="image" class="productImg" 
+                     >
+                  
+                <br><b> {{sellProduct.pro_desc}} </b> <br>
+                <i>Price: <b> {{sellProduct.pro_price}}  $ </b></i>
+                
+              <div class="d-flex">
+                
+                <p> <button class="btn btn-primary  text-center ms-4">Buy</button> </p>
+                <p> <button class="btn btn-primary  text-center ms-4"> 
+                  <fa-icon [icon]="faCartIcon" style="font-size:15px; color: black; " class="me-2"> </fa-icon>Add Cart</button> </p>
+              </div>
+                <!-- <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
+                <p> <button class="btn btn-primary w-75 text-center ms-4">Add to Cart</button> </p> -->
+            </div>
+        </div>
+    </div>
+</div>

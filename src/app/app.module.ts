@@ -28,6 +28,8 @@ import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component'
 import { CartService } from './cart.service';
 import { SellingComponent } from './selling/selling.component';
+import { AddsellproductComponent } from './addsellproduct/addsellproduct.component';
+import { SellingproductComponent } from './sellingproduct/sellingproduct.component';
 
 const myNavigation:Routes=[
  {
@@ -50,7 +52,15 @@ const myNavigation:Routes=[
  },
  { path:'cart',component:CartComponent},
  {
-  path:'selling',component:SellingComponent
+  path:'selling',component:SellingComponent,
+  children:[
+    {
+      path:'addsellproduct', component:AddsellproductComponent
+    },
+    {
+      path:'viewsellproduct', component:SellingproductComponent
+    }
+  ]
  },
  {
   path:'**',component:HomeComponent
@@ -71,6 +81,8 @@ const myNavigation:Routes=[
     AdminComponent,
     CartComponent,
     SellingComponent,
+    AddsellproductComponent,
+    SellingproductComponent,
     
   ],
   imports: [
