@@ -8,7 +8,7 @@ import { faTrashRestore } from '@fortawesome/free-solid-svg-icons'
 })
 export class CartComponent implements OnInit,DoCheck {
   cartArr:any;
-  noOfItems:number=1
+  noOfItems:number[]=[1,1,1,1,1,1,1,1,1,1,1];
   faRemove=faTrashRestore
   Pro_Cost:number;
   priceArr=[]
@@ -21,28 +21,33 @@ ngOnInit(): void {
   //  this.toCartArr.myCart  it is coming from Cart service.
   // We are looping  CartArr which store data from Cart service
   this.cartArr=this.toCartArr.myCart;
+  // for(let i=0; i<this.cartArr.lenght;i++){
+  //   this.noOfItems[i]=1;
+  //   this.noOfItems.push(1)
+
+  // }
+  // console.log(this.noOfItems)
+  // console.log(this.cartArr);
 }
  
 ngDoCheck(): void {
 
-console.log(  );
-
 //  console.log( [1,4,7,2,16].reduce((s,x)=>(s+x)));
- 
-  // this.totalPriceArr.push()
   
 }
 
-increment(Product:any){
-  if(this.noOfItems<5){
-    this.noOfItems+=1;
+increment(i:number){
+  // console.log(product)
+  if(this.noOfItems[i]<5){
+    this.noOfItems[i]+=1;
   
   }
 }
-decrement(Product:any){
+decrement(i:number){
+  // console.log(product)
   
-  if(this.noOfItems!=1){
-    this.noOfItems-=1
+  if(this.noOfItems[i]!=1){
+    this.noOfItems[i]-=1
   }
 }
 

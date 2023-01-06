@@ -1,47 +1,63 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,DoCheck } from '@angular/core';
 import { MyproductapiService } from '../myproductapi.service'
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from '../cart.service';
 import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit  {
+export class ProductsComponent implements OnInit,DoCheck  {
   myProducts:any;
   prod_index:any;
   closeModal: any;
   faCartIcon=faCartArrowDown
-
 // below variable is used to store objects
-  addedCartArr=[ { image:'https://tse3.mm.bing.net/th?id=OIP.YnR9VGkw6cNxlbnLdwDRjAHaE8&pid=Api&P=0',
-    title:"THis is BootStrap  ",
-    price:1212
-}  ]
-  cartArr:any
+
+  cartArr:any;
+  cartServiceArr:any;
+  cartIds:number[]=[]
+
   constructor(private myapi:MyproductapiService,private modalService: NgbModal, private myCartService:CartService){
   }
   ngOnInit(): void {
     this.myapi.x().subscribe((res:any)=>{
       console.log(res);
       this.myProducts=res
-    })
+    });
+   
   }
+  ngDoCheck(): void {
+    // console.log(this.myCartService.myCart);
+    
+    this.cartServiceArr=this.myCartService.myCart;
+    // console.log(this.cartServiceArr);
+    this.cartIds=this.cartServiceArr.map((each:any)=>`${each.id}` )
+    // console.log(this.cartIds);
+  }
+
+
+
   apidata(){
     console.log(this.myProducts);
     
   }
+
   addToCart(index:any){
+
     this.cartArr=this.myProducts[index]
     console.log(this.cartArr);
-    // this.addedCartArr.push(this.cartArr)
-    // console.log(this.addedCartArr);
+     
   //  below we used cart service and we are calling a method from it to store our obj.
     this.myCartService.addItemToCart(this.cartArr)
-
-
+    Swal.fire({
+      icon:'success',
+      title:"Item added to the cart"
+    })
   }
 
 

@@ -1,7 +1,15 @@
 <div class="addCartBg">
 
+    <div *ngIf="cartArr.length==0">
+       <div class="container imgdiv">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/confusing-woman-due-to-empty-cart-4558760-3780056.png" alt=""  class="emptyCart">
+       </div>
 
-    <div class="container bg-success">
+    </div>
+
+
+
+    <div class="container tablediv" *ngIf="cartArr.length!=0">
         <table class="table table-bordered">
             <thead class="text-center">
                 <th scope="col" style="width:20%"> Product</th>
@@ -16,18 +24,20 @@
 
                 <td class=" text-wrap ProductDesc pt-4"> {{item.title}} </td>
 
-                <td class="pt-4">    <button class="btn btn-danger bg-black" (click)="decrement(item)">  -  </button>
-                    <input type="number" class="w-25 bg-white ps-3" [value]="noOfItems" max="5" min="1">
-                    <button class="btn btn-danger bg-black" (click)="increment(item)">  +  </button>
+                <td class="pt-4">    <button class="btn btn-danger bg-black" type="button" (click)="decrement(i)">  -  </button>
+                    <!-- <input type="number" class="w-25 bg-white ps-3" [value]="noOfItems[i]" max="5" min="1"> -->
+                    <b> {{ noOfItems[i] }} </b>
+                    <button type="button" class="btn btn-danger bg-black" (click)="increment(i)">  +  </button>
                 </td>
 
                 <td class="pt-4" > 
-                   <b>{{noOfItems*item.price}}</b>
+                   <b>{{noOfItems[i]*item.price}}</b>
                     <i>$</i> </td>
                     <!-- <b class="myPriceValue">{{noOfItems * item.price}} </b>  -->
 
-                <td class="pt-4"> <button class="btn btn-danger " (click)="removeItem(i)">
-                        <fa-icon [icon]="faRemove"> </fa-icon> </button> </td>
+                <td class="pt-4">
+                    <button class="btn btn-primary bg-primary me-3">Buy</button> <button class="btn btn-danger bg-danger" (click)="removeItem(i)"> 
+                    <fa-icon [icon]="faRemove"> </fa-icon> </button> </td>
 
             </tbody>
             <tfoot class="bg-white w-100">

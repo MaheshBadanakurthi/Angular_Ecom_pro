@@ -7,10 +7,9 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { faE, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { JsonPipe } from '@angular/common';
-
 @Component({
   selector: 'app-addsellproduct',
+
   templateUrl: './addsellproduct.component.html',
   styleUrls: ['./addsellproduct.component.css']
 })
@@ -26,8 +25,9 @@ editPro_url:any
 editPro_price:number
 sellingProductsArr:any
 storingLSdata:any;
+ 
 
-
+constructor( private Pro_Model:NgbModal){   }
 product_form=new FormGroup({
   pro_Id:new FormControl(),
   pro_Name:new FormControl(),
@@ -36,6 +36,9 @@ product_form=new FormGroup({
   pro_Price:new FormControl(),
 
 });
+// to add new field dynamically
+
+
 get pro_Id(){
    return this.product_form.get('pro_Id')
 }
@@ -59,9 +62,6 @@ ngOnInit(): void {
  
 }
  
-
-
-constructor( private Pro_Model:NgbModal){   }
 
 // below is used to open bootstrap model to add product
   addProductDetails(modalData:any){
@@ -131,14 +131,32 @@ edit_Pro_Details(editDetails:any,editIndex:number){
   }
 
   addField(){
-    let row = document.createElement('div');  
-      row.className = 'row';
-      row.innerHTML = `
+   let row = document.createElement('div');  
+   row.className = 'row';
+   row.innerHTML = `
       
       <input type="text" class="form-control w-75 mb-3" placeholder="Enter details" >  `;
-   document.querySelector('.newFeild')?.appendChild(row)
+   document.querySelector('.newFeild')?.appendChild( row)
+   
 
   }
+  // add new input field to tke extra url
+  addNewInput(){
+    let row= document.createElement('div');
+    row.className=`row`;
+    row.innerHTML=` <input type="url" class="form-control w-75 mb-2 mt-2" placeholder="enter url here"  formControlName="pro_URL"> 
+    <button class="btn btn-info w-auto h-auto" (click)="removeInputField()" class="deleteInput"> - </button> `;
+    document.querySelector('.newurl')?.appendChild(row);
+  
+
+  }
+  removeInputField(){
+    // document.querySelector('.newurl')?.removeChild(row);
+    console.log('new input');
+    
+
+  }
+
 
 }
 

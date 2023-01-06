@@ -8,6 +8,6 @@ export class MyproductapiService {
 
   constructor(private http:HttpClient) { }
   x(){
-    return this.http.get<any>('https://fakestoreapi.com/products/')
+    return this.http.get<any>('https://fakestoreapi.com/products')
   }
 }

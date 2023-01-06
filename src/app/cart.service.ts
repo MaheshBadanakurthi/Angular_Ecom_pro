@@ -6,9 +6,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
 
   constructor() { }
-myCart=[ { image:'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-title:'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve',
-price:112  }  ]
+myCart:any=[]
 
 // based on usage we declare as many as methods here.
 // below addItemToCart() method is called in Product Component to add selected item in araay.
