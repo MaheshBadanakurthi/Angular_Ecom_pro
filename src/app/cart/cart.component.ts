@@ -7,7 +7,7 @@ import { faTrashRestore } from '@fortawesome/free-solid-svg-icons'
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit,DoCheck {
-  cartArr:any;
+  cartArr:any[]
   noOfItems:number[]=[1,1,1,1,1,1,1,1,1,1,1];
   faRemove=faTrashRestore
   Pro_Cost:number;
@@ -21,13 +21,14 @@ ngOnInit(): void {
   //  this.toCartArr.myCart  it is coming from Cart service.
   // We are looping  CartArr which store data from Cart service
   this.cartArr=this.toCartArr.myCart;
+  
   // for(let i=0; i<this.cartArr.lenght;i++){
   //   this.noOfItems[i]=1;
   //   this.noOfItems.push(1)
 
   // }
   // console.log(this.noOfItems)
-  // console.log(this.cartArr);
+  console.log(this.cartArr);
 }
  
 ngDoCheck(): void {

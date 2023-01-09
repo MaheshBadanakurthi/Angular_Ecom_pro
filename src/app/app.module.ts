@@ -30,6 +30,9 @@ import { CartService } from './cart.service';
 import { SellingComponent } from './selling/selling.component';
 import { AddsellproductComponent } from './addsellproduct/addsellproduct.component';
 import { SellingproductComponent } from './sellingproduct/sellingproduct.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+ 
+
 
 const myNavigation:Routes=[
  {
@@ -84,6 +87,7 @@ const myNavigation:Routes=[
     AddsellproductComponent,
     SellingproductComponent,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -98,7 +102,10 @@ const myNavigation:Routes=[
     MatIconModule,
     HttpClientModule,
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatProgressSpinnerModule,
+
+    
   ],
   providers: [ProductAuthService,LoginComponent,CartService],
   bootstrap: [AppComponent]

@@ -20,7 +20,7 @@ editPro_id:any
 editPro_name:any
 editPro_desc:any
 editPro_price:any
-
+userPro:any={}
 
 product_form=new FormGroup({
   pro_Id:new FormControl(),
@@ -44,9 +44,7 @@ get pro_Price(){
 
 
 
-sellingProductsArr = [ 
-  {  pro_id:101, pro_name:'Watch', pro_desc:"Rolex model model made in local garrge", pro_price:1299  }
-]
+sellingProductsArr:any = [ ]
 
 
 constructor( private Pro_Model:NgbModal){   }
@@ -58,14 +56,14 @@ constructor( private Pro_Model:NgbModal){   }
 
   // Adding data in bootstrap model and storing
   addProDetails(){
-    let userPro={
-       pro_id: this.pro_Id?.value,
-       pro_name:this.pro_Name?.value,
-       pro_desc:this.pro_Desc?.value,
-       pro_price:this.pro_Price?.value
+    this.userPro={
+       id: this.pro_Id?.value,
+       title:this.pro_Name?.value,
+       description:this.pro_Desc?.value,
+       price:this.pro_Price?.value
      }
-     console.log(userPro);
-     this.sellingProductsArr.push(userPro)
+    //  console.log(this,userPro);
+     this.sellingProductsArr.push(this.userPro)
      console.log(this.sellingProductsArr);
      localStorage.setItem("selling_Products",JSON.stringify(this.sellingProductsArr))
      this.product_form.reset()

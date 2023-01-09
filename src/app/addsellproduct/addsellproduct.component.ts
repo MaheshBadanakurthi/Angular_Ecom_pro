@@ -3,7 +3,7 @@
 
 import { Component,DoCheck,OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import { faE, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
@@ -26,17 +26,36 @@ editPro_price:number
 sellingProductsArr:any
 storingLSdata:any;
  
+product_form:FormGroup
+constructor( private Pro_Model:NgbModal,private fb:FormBuilder){ 
+  this.product_form= this.fb.group({
+    pro_Id:new FormControl(),
+    pro_Name:new FormControl(),
+    pro_Desc:new FormControl(),
+    pro_Price:new FormControl(),
+    pro_URL: this.fb.array([this.addNewInput()])
+  
+  });
+  }
+get addingNewInput(): FormArray{
+  return  <FormArray>this.product_form.get('pro_URL')
+}
 
-constructor( private Pro_Model:NgbModal){   }
-product_form=new FormGroup({
-  pro_Id:new FormControl(),
-  pro_Name:new FormControl(),
-  pro_Desc:new FormControl(),
-  pro_URL:new FormControl(),
-  pro_Price:new FormControl(),
-
-});
+  addNewInput() : FormGroup{
+    return this.fb.group({
+      urls:new FormControl()
+    })
+  }
+// nelow is for adding new input
+ forNewInput(){
+  this.addingNewInput.push(this.addNewInput())
+ }
+//  removing input
+ removingInput(index:number){
+  this.addingNewInput.removeAt(index)
+ }
 // to add new field dynamically
+
 
 
 get pro_Id(){
@@ -78,6 +97,8 @@ ngOnInit(): void {
        pro_price:this.pro_Price?.value
      }
      console.log(userPro);
+     console.log(this.pro_URL);
+     
      this.sellingProductsArr.push(userPro)
      console.log(this.sellingProductsArr);
      localStorage.setItem("selling_Products",JSON.stringify(this.sellingProductsArr))
@@ -141,15 +162,13 @@ edit_Pro_Details(editDetails:any,editIndex:number){
 
   }
   // add new input field to tke extra url
-  addNewInput(){
-    let row= document.createElement('div');
-    row.className=`row`;
-    row.innerHTML=` <input type="url" class="form-control w-75 mb-2 mt-2" placeholder="enter url here"  formControlName="pro_URL"> 
-    <button class="btn btn-info w-auto h-auto" (click)="removeInputField()" class="deleteInput"> - </button> `;
-    document.querySelector('.newurl')?.appendChild(row);
-  
-
-  }
+  // addNewInput(){
+  //   let row= document.createElement('div');
+  //   row.className=`row`;
+  //   row.innerHTML=` <input type="url" class="form-control w-75 mb-2 mt-2" placeholder="enter url here"  formControlName="pro_URL"> 
+  //   <button class="btn btn-info w-auto h-auto" (click)="removeInputField()" class="deleteInput"> - </button> `;
+  //   document.querySelector('.newurl')?.appendChild(row);
+  // }
   removeInputField(){
     // document.querySelector('.newurl')?.removeChild(row);
     console.log('new input');
@@ -159,6 +178,12 @@ edit_Pro_Details(editDetails:any,editIndex:number){
 
 
 }
+
+
+
+
+
+
 
 
 

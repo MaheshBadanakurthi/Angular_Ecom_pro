@@ -12,7 +12,7 @@ export class AppComponent implements  OnInit,DoCheck{
   logoutShow:boolean=true;
   forLoggin:any;
   forlog:any;
-
+  loginHidden:boolean=false;
   constructor(  ){  }
 
   ngOnInit():void{
@@ -33,6 +33,7 @@ ngDoCheck(): void {
       if(this.forlog){
         this.productShow=false;
         this.logoutShow=false
+        this.loginHidden=true
       }
       else{
         this.productShow=true;

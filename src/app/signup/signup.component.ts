@@ -68,7 +68,7 @@ export class SignupComponent implements OnInit {
 
       })
       // after successful log in user can navigate to log in page
-      this.myrout.navigate(['login'])
+      // this.myrout.navigate(['login'])
 
     }
     else {

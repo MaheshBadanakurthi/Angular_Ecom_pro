@@ -10,8 +10,13 @@
         <div> <button class="btn btn-primary categorybutton">Men</button> </div>
         <div><button class="btn btn-primary categorybutton">Women</button> </div>
     </div>
+    <!-- Spinner -->
+    <div class="spinner">
+      <mat-spinner *ngIf="myLoader" >   </mat-spinner>
+    </div>
 
-    <div *ngFor="let product of myProducts ; let i=index" class=" forProduct">
+    <div *ngIf="!myLoader">
+    <div *ngFor="let product of myProducts ; let i=index" class=" forProduct" >
         <div>
             <img src={{product.image}} alt="image" class="productImg" (click)="showProductDetails(modalData,i)"
             data-bs-toggle="modal" data-bs-target="#product_Details" >
@@ -28,6 +33,7 @@
             <!-- <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
             <p> <button class="btn btn-primary w-75 text-center ms-4">Add to Cart</button> </p> -->
         </div>
+    </div>
     </div>
 
  <ng-template #modalData let-modal>

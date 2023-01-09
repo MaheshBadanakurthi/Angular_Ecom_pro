@@ -11,11 +11,11 @@
         </div>
         
         <div>
-            <a class="nav-link mt-4" routerLink="/login" routerLinkActive="routerActive"><button class="btn btn-outline-success text-info">LogIn</button></a>
+            <a class="nav-link mt-4" routerLink="/login" routerLinkActive="routerActive"><button class="btn btn-outline-success text-info" [hidden]="loginHidden">LogIn</button></a>
 
         </div>
         <div>
-            <a class="nav-link mt-4" routerLink="/signup" routerLinkActive="routerActive" ><button class="btn btn-outline-info">SignUp</button></a>
+            <a class="nav-link mt-4" routerLink="/signup" routerLinkActive="routerActive" ><button class="btn btn-outline-info" [hidden]="loginHidden">SignUp</button></a>
 
         </div>
         <div>

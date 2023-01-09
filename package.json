@@ -29,6 +29,8 @@
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
     "rxjs": "~7.5.0",
+    "simple-ng-loader": "^2.0.0",
+    "spinners-angular": "^0.0.5",
     "sweetalert2": "^11.6.16",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

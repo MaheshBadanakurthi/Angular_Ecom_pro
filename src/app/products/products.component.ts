@@ -6,31 +6,36 @@ import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2';
 
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit,DoCheck  {
-  myProducts:any;
+  myProducts:any=[]
   prod_index:any;
   closeModal: any;
-  faCartIcon=faCartArrowDown
+  faCartIcon=faCartArrowDown;
+  myLoader:boolean=true;
 // below variable is used to store objects
-
   cartArr:any;
   cartServiceArr:any;
-  cartIds:number[]=[]
+  cartIds:number[]=[]  
 
   constructor(private myapi:MyproductapiService,private modalService: NgbModal, private myCartService:CartService){
   }
   ngOnInit(): void {
     this.myapi.x().subscribe((res:any)=>{
       console.log(res);
-      this.myProducts=res
+      this.myProducts=res;
+      this.myLoader=false
     });
+
    
   }
+
+
   ngDoCheck(): void {
     // console.log(this.myCartService.myCart);
     
