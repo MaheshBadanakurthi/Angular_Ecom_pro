@@ -30,10 +30,9 @@
                     <button type="button" class="btn btn-danger bg-black" (click)="increment(i)">  +  </button>
                 </td>
 
-                <td class="pt-4" > 
-                   <b>{{noOfItems[i]*item.price}}</b>
+                <td class="pt-4 " > 
+                   <b >{{(noOfItems[i]*item.price).toFixed(2)}}</b>
                     <i>$</i> </td>
-                    <!-- <b class="myPriceValue">{{noOfItems * item.price}} </b>  -->
 
                 <td class="pt-4">
                     <button class="btn btn-primary bg-primary me-3">Buy</button> <button class="btn btn-danger bg-danger" (click)="removeItem(i)"> 
@@ -41,11 +40,11 @@
 
             </tbody>
             <tfoot class="bg-white w-100">
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td class="pt-4"> <b>  </b> </td>
-                <td> </td>
+                <td style="width:20%"> </td>
+                <td style="width:20%"> </td>
+                <td style="width:20%">The Grand Total amount is : </td>
+                <td class="pt-2 text-center h-auto" style="width:30%"> <b class="bg-warning h-auto w-auto rounded-circle"> {{GrandTotal}} $ </b> </td>
+                <td style="width:10%"> </td>
             </tfoot>
 
         </table>

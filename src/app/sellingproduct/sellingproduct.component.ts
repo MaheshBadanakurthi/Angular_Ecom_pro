@@ -46,8 +46,17 @@ export class SellingproductComponent implements OnInit{
   }
 
   // Below is used show popup n Carousel
-  showCarouselPopup(myCarousel:any){
-    this.bsModal.open(myCarousel)
+  carouselImgArr:any[]=[]
+  showCarouselPopup(myCarousel:any, index:number){
+    this.bsModal.open(myCarousel);
+    console.log(this.lsForSellProduct[index].pro_url);
+    this.carouselImg=this.lsForSellProduct[index].pro_url
+    console.log(this.carouselImg);
+this.carouselImgArr=this.carouselImg.map((each:any)=>`${each.urls}`)
+   console.log(this.carouselImgArr);
+    
+    
+
   }
 
 

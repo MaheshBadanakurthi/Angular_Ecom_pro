@@ -3,11 +3,11 @@
     <div>
         <div *ngFor="let sellProduct of lsForSellProduct; let i=index" class=" forProduct">
             <div>
-                <img src={{sellProduct.image}} alt="image" class="productImg" 
-                    data-bs-toogle="modal" data-bs-target="#myCarousel" (click)="showCarouselPopup(myCarousel)" >
+                <img src={{sellProduct.pro_url[0].urls}} alt="image" class="productImg" 
+                    data-bs-toogle="modal" data-bs-target="#myCarousel" (click)="showCarouselPopup(myCarousel,i)" >
                   
-                <br><b> {{sellProduct.title}} </b> <br>
-                <i>Price: <b> {{sellProduct.price}}  $ </b></i>
+                <br><b> {{sellProduct.pro_name}} </b> <br>
+                <i>Price: <b> {{sellProduct.pro_price}}  $ </b></i>
                 
               <div class="d-flex">
                 
@@ -23,45 +23,65 @@
 </div>
 
 <ng-template #myCarousel let-modal >
+    
+    <!-- <ngb-carousel>
+        <div *ngFor="let img of carouselImg">
+             <ng-template ngbSlide>
+                  <img src="img.urls" alt=" No img found">
+             </ng-template>
+        </div>
+    </ngb-carousel> -->
   
-    <ngb-carousel *ngIf="carouselImg">
+    <ngb-carousel *ngIf="carouselImgArr">
         <ng-template ngbSlide>
-            <div  >
-                <img [src]="carouselImg[0]" alt="Random first slide"  class="carouselImg">
-            </div>
-            <div  >
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <div >
+                <img [src]="carouselImgArr[0]" alt=""  class="carouselImg">
+             
+                <h3>Image 1 Title</h3>
+                <p>Its escription</p>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
-            <div  >
-                <img [src]="carouselImg[1]" alt="Random second slide" class="carouselImg">
-            </div>
-            <div class="carousel-caption">
-                <h3>Second slide label</h3>
+        <ng-template ngbSlide *ngIf="carouselImgArr[1]">
+            <div >
+                <img [src]="carouselImgArr[1]" alt="Unable to show img" class="carouselImg">
+             
+                <h3>Second slide </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-                <img [src]="carouselImg[2]" alt="Random third slide" class="carouselImg">
-            </div>
-            <div class="carousel-caption">
+        <ng-template ngbSlide *ngIf="carouselImgArr[2]">
+            <div>
+                <img [src]="carouselImgArr[2]" alt="Unable to show img" class="carouselImg">
+             
                 <h3>Third slide label</h3>
                 <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             </div>
         </ng-template>
-        <ng-template ngbSlide>
-            <div class="picsum-img-wrapper">
-                <img [src]="carouselImg[3]" alt="Random third slide" class="carouselImg" />
-            </div>
-            <div class="carousel-caption">
+        <ng-template ngbSlide *ngIf="carouselImgArr[3]">
+            <div>
+                <img [src]="carouselImgArr[3]" alt="Unable to show img" class="carouselImg" />
+           
                 <h3>Third slide label</h3>
                 <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             </div>
         </ng-template>
-    </ngb-carousel>
+        <ng-template ngbSlide *ngIf="carouselImgArr[4]">
+            <div>
+                <img [src]="carouselImgArr[4]" alt="Unable to show img" class="carouselImg" />
+           
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </ng-template>
+        <ng-template ngbSlide *ngIf="carouselImgArr[5]">
+            <div>
+                <img [src]="carouselImgArr[5]" alt="Unable to show img" class="carouselImg" />
+           
+                <h3>Third slide label</h3>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+        </ng-template>
+    </ngb-carousel> 
     
     
 

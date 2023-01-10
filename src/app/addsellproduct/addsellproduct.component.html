@@ -18,7 +18,7 @@
             <td style="width: 13%;"> {{product.pro_name}} </td>
             <td style="width: 20%;"> {{product.pro_desc}} </td>
             <td style="width: 10%;"> {{product.pro_price}} </td>
-            <td> {{product.pro_url | json}}</td>
+            <td style="width: 25%;"> {{product.pro_url | json}}</td>
             <td style="width: 40%;" class="pe-5">
                 <button class="btn btn-primary text-black"><fa-icon [icon]="faCart"></fa-icon></button>
                 <button class="btn btn-primary text-black ms-2" (click)="edit_Pro_Details(Edit_product_Details,i)"
@@ -47,7 +47,7 @@
             </div>
             <div *ngFor=" let group of addingNewInput.controls; let i=index" formArrayName="pro_URL">
                 <div [formGroupName]="i" class="d-flex">
-                    <input type="text" class="form-control w-50" placeholder="Entrer url here">
+                    <input type="text" class="form-control w-50" placeholder="Entrer url here" formControlName="urls">
                     <button *ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="removingInput(i)"> - </button>
                 </div>
             </div>
@@ -57,7 +57,7 @@
     
                 <div class="d-flex">
                     <button class="btn btn-danger " (click)="closeModel()">Cancel</button>
-                    <button class="btn btn-success ms-5" (click)="addProDetails()">AddDetails</button>
+                    <button class="btn btn-success ms-5" (click)="addProDetails()" type="submit">AddDetails</button>
                 </div>
                 
         </form>

@@ -37,13 +37,23 @@ constructor( private Pro_Model:NgbModal,private fb:FormBuilder){
   
   });
   }
+
+  ngOnInit(): void {
+    this.storingLSdata = localStorage.getItem('selling_Products');
+    this.sellingProductsArr = JSON.parse(this.storingLSdata)
+    console.log(this.sellingProductsArr);
+    
+   }
+    
+
 get addingNewInput(): FormArray{
   return  <FormArray>this.product_form.get('pro_URL')
 }
 
-  addNewInput() : FormGroup{
+  addNewInput() {
     return this.fb.group({
       urls:new FormControl()
+      
     })
   }
 // nelow is for adding new input
@@ -54,9 +64,6 @@ get addingNewInput(): FormArray{
  removingInput(index:number){
   this.addingNewInput.removeAt(index)
  }
-// to add new field dynamically
-
-
 
 get pro_Id(){
    return this.product_form.get('pro_Id')
@@ -74,14 +81,6 @@ get pro_Price(){
   return this.product_form.get('pro_Price')
 }
 
-ngOnInit(): void {
- this.storingLSdata = localStorage.getItem('selling_Products');
- this.sellingProductsArr = JSON.parse(this.storingLSdata)
- console.log(this.sellingProductsArr);
- 
-}
- 
-
 // below is used to open bootstrap model to add product
   addProductDetails(modalData:any){
     this.Pro_Model.open(modalData)
@@ -93,12 +92,17 @@ ngOnInit(): void {
        pro_id: this.pro_Id?.value,
        pro_name:this.pro_Name?.value,
        pro_desc:this.pro_Desc?.value,
-       pro_url:this.pro_URL?.value,
-       pro_price:this.pro_Price?.value
+       pro_price:this.pro_Price?.value,
+       pro_url:this.pro_URL?.value
      }
      console.log(userPro);
-     console.log(this.pro_URL);
+     console.log(this.pro_URL?.value);
      
+    //  let myfArr= this.product_form.get('urls') as FormArray;
+    //  let arrValues=myfArr.controls.map((each:any)=>`${each.value}`)
+    //  console.log(arrValues);
+     
+
      this.sellingProductsArr.push(userPro)
      console.log(this.sellingProductsArr);
      localStorage.setItem("selling_Products",JSON.stringify(this.sellingProductsArr))

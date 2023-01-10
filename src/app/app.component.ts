@@ -1,5 +1,5 @@
 import { Component,OnInit,DoCheck} from '@angular/core';
- 
+ import { CartService } from './cart.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,10 @@ export class AppComponent implements  OnInit,DoCheck{
   forLoggin:any;
   forlog:any;
   loginHidden:boolean=false;
-  constructor(  ){  }
+  cartlength:number;
+  cartArrValues:any;
+
+  constructor( private myCartItems:CartService ){  }
 
   ngOnInit():void{
     this.forLoggin =  sessionStorage.getItem('loggedin')
@@ -22,6 +25,7 @@ export class AppComponent implements  OnInit,DoCheck{
       if(this.forlog){
         this.productShow=false
       }
+     
       // this.productShow = this.log.toShowProducts
   }
  
@@ -39,7 +43,12 @@ ngDoCheck(): void {
         this.productShow=true;
         this.logoutShow=true;
       }
-     
+// below functionality is used to show no of item in cart 
+      this.cartArrValues=this.myCartItems.myCart;
+      if(this.cartArrValues){
+        this.cartlength=this.cartArrValues.length
+      }
+
 }
 
 
