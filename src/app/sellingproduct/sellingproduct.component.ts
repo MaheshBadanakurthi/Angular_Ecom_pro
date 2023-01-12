@@ -5,6 +5,7 @@ import { CartService } from '../cart.service';
 import Swal from 'sweetalert2';
 import {NgbModal, NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap'
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class SellingproductComponent implements OnInit{
   // images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
 
-  constructor( private myCartS:CartService, private bsModal:NgbModal){   }
+  constructor( private myCartS:CartService, private bsModal:NgbModal, private route:Router){   }
   
   ngOnInit(): void {
     this.lsData=localStorage.getItem('selling_Products')
@@ -98,6 +99,19 @@ this.carouselImgArr=this.carouselImg.map((each:any)=>`${each.urls}`)
   })
     
   }
+
+// IN below functionality I used cart service to store data n display in Details component
+  seeProductDetails(index:number){
+    this.myCartS.show_Pro_Details( this.lsForSellProduct[index]  )
+    this.route.navigate(['/show_pro_Details'])
+  }
+
+
+
+
+
+
+
 
 
 }

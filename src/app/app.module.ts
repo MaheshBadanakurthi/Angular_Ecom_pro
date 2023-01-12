@@ -23,8 +23,7 @@ import { CommonModule } from '@angular/common'
 import { ProductAuthService } from './product-auth.service';
 import { LogoutComponent } from './logout/logout.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { AdminComponent } from './admin/admin.component';
+ import { AdminComponent } from './admin/admin.component';
 import { CartComponent } from './cart/cart.component'
 import { CartService } from './cart.service';
 import { SellingComponent } from './selling/selling.component';
@@ -32,6 +31,8 @@ import { AddsellproductComponent } from './addsellproduct/addsellproduct.compone
 import { SellingproductComponent } from './sellingproduct/sellingproduct.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ShowProDetailsComponent } from './show-pro-details/show-pro-details.component';
+
 const myNavigation:Routes=[
  {
   path:'',component:HomeComponent
@@ -60,9 +61,13 @@ const myNavigation:Routes=[
     },
     {
       path:'viewsellproduct', component:SellingproductComponent
-    }
+    },
   ]
  },
+ 
+ {
+  path:'show_pro_Details', component:ShowProDetailsComponent
+},
  {
   path:'**',component:HomeComponent
  }
@@ -84,6 +89,7 @@ const myNavigation:Routes=[
     SellingComponent,
     AddsellproductComponent,
     SellingproductComponent,
+    ShowProDetailsComponent,
     
     
   ],
@@ -102,7 +108,7 @@ const myNavigation:Routes=[
     CommonModule,
     FontAwesomeModule,
     MatProgressSpinnerModule,
-  
+    Ng2SearchPipeModule
     
   ],
   providers: [ProductAuthService,LoginComponent,CartService],

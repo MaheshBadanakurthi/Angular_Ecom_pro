@@ -17,5 +17,10 @@ addItemToCart(myObj:any){
 deleteItem(index:number){
   this.myCart.splice(index,1)
 }
+// below functionaity is used to display hte data in Details component;
+show_pro_detailsArr={}
+show_Pro_Details(pro_obj:any){
+  this.show_pro_detailsArr=pro_obj
+}
 
 }

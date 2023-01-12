@@ -13,6 +13,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit,DoCheck  {
+  
+  searchProducts:any;
+
   myProducts:any=[]
   prod_index:any;
   closeModal: any;

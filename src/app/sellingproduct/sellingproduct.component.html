@@ -9,8 +9,19 @@
                 <br><b> {{sellProduct.pro_name}} </b> <br>
                 <i>Price: <b> {{sellProduct.Sellers[0].sell_price}}  $ </b></i>
               <div class="d-flex">
-                 <p> <button class="btn btn-warning ms-1" (click)="showItemDetails(Item_Detils,i)" 
-                    data-bs-toogle="modal" data-bs-target="#Item_Detils" ngbPopover="click to show details" triggers="mouseenter:mouseleave" >Details</button> </p>
+
+                <!-- below tag is used to display in the form of MOdal popup -->
+                 <!-- <p>
+                     <button class="btn btn-warning ms-1" (click)="showItemDetails(Item_Detils,i)" 
+                    data-bs-toogle="modal" data-bs-target="#Item_Detils" ngbPopover="click to show details" triggers="mouseenter:mouseleave" >Details</button>
+                 </p> -->
+
+                 <p>  
+                    <button class="btn btn-warning ms-1"  
+                    ngbPopover="click to show details" triggers="mouseenter:mouseleave"
+                    (click)="seeProductDetails(i)" >  Details    </button> 
+                </p>
+
                   <p> <button class="btn btn-success  text-center ms-4">Buy</button> </p>
                   <p> <button class="btn btn-primary  text-center ms-2" (click)="addItemtoCart(i)" ngbPopover="Add to cart" triggers="mouseenter:mouseleave"> 
                     <fa-icon [icon]="faCartIcon" style="font-size:15px; color: black; " class="me-2"> </fa-icon></button> </p>  

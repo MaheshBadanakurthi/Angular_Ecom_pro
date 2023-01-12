@@ -9,15 +9,15 @@
             <th>P_Name</th>
             <th>P_Desc</th>
             <th>P_Price</th>
-            <th>Img_Url</th>
+            <th>Img_Url</th>   
             <th>Action</th>
 
         </thead>
         <tbody class="ps-5 text-center" *ngFor="let product of sellingProductsArr ; let i=index">
             <td style="width: 10%;">{{product.pro_id}}</td>
             <td style="width: 13%;"> {{product.pro_name}} </td>
-            <td style="width: 20%;"> {{product.pro_desc}} </td>
-            <td style="width: 10%;"> {{product.pro_price}} </td>
+            <td style="width: 20%;"> {{product.Sellers[0].sell_desc}} </td>
+            <td style="width: 10%;"> {{product.Sellers[0].sell_price}} </td>
             <td style="width: 25%;"> {{product.pro_url | json}}</td>
             <td style="width: 40%;" class="pe-5">
                 <button class="btn btn-primary text-black"><fa-icon [icon]="faCart"></fa-icon></button>
