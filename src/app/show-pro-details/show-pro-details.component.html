@@ -1,6 +1,10 @@
 <div class="container Detailshead">
 
-    <div>
+    <div *ngIf="!sellers">
+        <h1 class="text-center text-danger">U don't have a product to check</h1>
+    </div>
+
+    <div *ngIf="sellers">
         <aside>
             <div class="sellerScroll">
                 <div *ngFor="let seller of sellers;let i=index" class="ms-2 me-1">
@@ -25,10 +29,27 @@
         <div *ngIf=" prod_Details">
 
             <div>
-                <img src={{prod_Details.pro_url[0].urls}} alt="image" class="forimage">
+                <ngb-carousel class="h-75 w-50 bg-secondary carousel">
+                    <ng-template ngbSlide >
+                        <img src={{prod_Details.pro_url[0].urls}} alt="image" class="forimage" >
+                    </ng-template>
+                    <ng-template ngbSlide *ngIf="prod_Details.pro_url[1]" >
+                        <img src={{prod_Details.pro_url[1].urls}} alt="image"  class="forimage">
+                    </ng-template >
+                    <ng-template ngbSlide *ngIf="prod_Details.pro_url[2]">
+                        <img src={{prod_Details.pro_url[2].urls}} alt="image" class="forimage">
+                    </ng-template>
+                    <ng-template ngbSlide *ngIf="prod_Details.pro_url[3]">
+                        <img src={{prod_Details.pro_url[3].urls}} alt="image" class="forimage">
+                    </ng-template>
+                    <ng-template ngbSlide *ngIf="prod_Details.pro_url[4]">
+                        <img src={{prod_Details.pro_url[4].urls}} alt="image" class="forimage">
+                    </ng-template>
+                </ngb-carousel>
+                <!-- <img src={{prod_Details.pro_url[0].urls}} alt="image" class="forimage"  data-bs-toogle="modal" data-bs-target="#myCarousel"> -->
 
-                <br><b> {{prod_Details.pro_name}} </b> <br>
-                <i>Price: <b> {{prod_Details.Sellers[0].sell_price}} $ </b></i>
+                <br><b class="pt-5 ms-5"> {{prod_Details.pro_name}} </b> <br>
+                <i class="pt-5 ms-5">Price: <b > {{prod_Details.Sellers[0].sell_price}} $ </b></i>
 
             </div>
         </div>

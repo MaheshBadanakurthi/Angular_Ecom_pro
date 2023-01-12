@@ -29,6 +29,7 @@ storingLSdata:any;
 product_form:FormGroup
 constructor( private Pro_Model:NgbModal,private fb:FormBuilder){ 
   this.product_form= this.fb.group({
+    category: new FormControl(),
     pro_Id:new FormControl(),
     pro_Name:new FormControl(),
     pro_URL: this.fb.array([this.addNewInput()]),
@@ -75,6 +76,9 @@ removeSeller(index:number){
   this.addSellerInput.removeAt(index)
 }
 // below are getter methods to acces input fields.
+get category(){
+  return this.product_form.get('category')
+}
 get pro_Id(){
    return this.product_form.get('pro_Id')
 }
@@ -94,6 +98,7 @@ get seller(){
   // Adding data in bootstrap model and storing
   addProDetails(){
     let userPro={
+      category:this.category?.value,
        pro_id: this.pro_Id?.value,
        pro_name:this.pro_Name?.value,
        pro_url:this.pro_URL?.value,
