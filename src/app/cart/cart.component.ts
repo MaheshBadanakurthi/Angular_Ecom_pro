@@ -23,13 +23,14 @@ ngOnInit(): void {
   //   this.noOfItems.push(1)
   // }
   // console.log(this.noOfItems)
-
+  console.log(this.cartArr);
+  
 }
  
 ngDoCheck(): void {
   
   if(this.cartArr.length ===0){
-    console.log('length 0');
+    // console.log();
     
   }
 else{

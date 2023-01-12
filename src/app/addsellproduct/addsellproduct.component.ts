@@ -31,10 +31,8 @@ constructor( private Pro_Model:NgbModal,private fb:FormBuilder){
   this.product_form= this.fb.group({
     pro_Id:new FormControl(),
     pro_Name:new FormControl(),
-    pro_Desc:new FormControl(),
-    pro_Price:new FormControl(),
-    pro_URL: this.fb.array([this.addNewInput()])
-  
+    pro_URL: this.fb.array([this.addNewInput()]),
+    seller:this.fb.array([this.addNewSeller()])
   });
   }
 
@@ -42,18 +40,13 @@ constructor( private Pro_Model:NgbModal,private fb:FormBuilder){
     this.storingLSdata = localStorage.getItem('selling_Products');
     this.sellingProductsArr = JSON.parse(this.storingLSdata)
     console.log(this.sellingProductsArr);
-    
    }
-    
-
 get addingNewInput(): FormArray{
   return  <FormArray>this.product_form.get('pro_URL')
 }
-
   addNewInput() {
     return this.fb.group({
       urls:new FormControl()
-      
     })
   }
 // nelow is for adding new input
@@ -64,51 +57,54 @@ get addingNewInput(): FormArray{
  removingInput(index:number){
   this.addingNewInput.removeAt(index)
  }
-
+// for seller inputs
+get addSellerInput():FormArray{
+  return <FormArray>this.product_form.get('seller')
+}
+addNewSeller(){
+  return this.fb.group({
+    sell_price:new FormControl(),
+    sell_desc:new FormControl(),
+    sell_brand:new FormControl()
+  })
+}
+newSeller(){
+  this.addSellerInput.push(this.addNewSeller())
+}
+removeSeller(index:number){
+  this.addSellerInput.removeAt(index)
+}
+// below are getter methods to acces input fields.
 get pro_Id(){
    return this.product_form.get('pro_Id')
 }
 get pro_Name(){
   return this.product_form.get('pro_Name')
 }
-get pro_Desc(){
-  return this.product_form.get('pro_Desc')
-}
 get pro_URL(){
   return this.product_form.get('pro_URL')
 }
-get pro_Price(){
-  return this.product_form.get('pro_Price')
+get seller(){
+  return this.product_form.get('seller')
 }
-
 // below is used to open bootstrap model to add product
   addProductDetails(modalData:any){
     this.Pro_Model.open(modalData)
   }
-
   // Adding data in bootstrap model and storing
   addProDetails(){
     let userPro={
        pro_id: this.pro_Id?.value,
        pro_name:this.pro_Name?.value,
-       pro_desc:this.pro_Desc?.value,
-       pro_price:this.pro_Price?.value,
-       pro_url:this.pro_URL?.value
+       pro_url:this.pro_URL?.value,
+       Sellers:this.seller?.value
      }
      console.log(userPro);
-     console.log(this.pro_URL?.value);
-     
-    //  let myfArr= this.product_form.get('urls') as FormArray;
-    //  let arrValues=myfArr.controls.map((each:any)=>`${each.value}`)
-    //  console.log(arrValues);
-     
-
      this.sellingProductsArr.push(userPro)
      console.log(this.sellingProductsArr);
      localStorage.setItem("selling_Products",JSON.stringify(this.sellingProductsArr))
      this.product_form.reset()
      this.Pro_Model.dismissAll()
-     
   }
 // Closing Bootstrap model
   closeModel(){
@@ -127,7 +123,6 @@ edit_Pro_Details(editDetails:any,editIndex:number){
    this.indexForUpdateDetails=editIndex;
     // this.sellingProductsArr[editIndex]
     console.log(this.sellingProductsArr[editIndex]);
-
     this.editPro_id=this.sellingProductsArr[editIndex].pro_id,
       this.editPro_name=this.sellingProductsArr[editIndex].pro_name,
       this.editPro_desc=this.sellingProductsArr[editIndex].pro_desc,
@@ -135,16 +130,15 @@ edit_Pro_Details(editDetails:any,editIndex:number){
       this.editPro_price=this.sellingProductsArr[editIndex].pro_price
      this.Pro_Model.open(editDetails)
   }
-
-
+// after editing, below functionality used for update that details.
   updateEditedDetails(){
     console.log(this.indexForUpdateDetails);
     let updateObj={
-      pro_id: this.editPro_id  ,
-      pro_name:  this.editPro_name  ,
-      pro_desc:  this.editPro_desc,
-      pro_url:this.editPro_url,
-      pro_price: this.editPro_price  
+      id: this.editPro_id  ,
+      title:  this.editPro_name  ,
+      description:  this.editPro_desc,
+      image:this.editPro_url,
+      price: this.editPro_price  
     }
     this.sellingProductsArr[this.indexForUpdateDetails]=updateObj;
     this.lsToUpdate= localStorage.getItem('selling_Products');
@@ -155,30 +149,7 @@ edit_Pro_Details(editDetails:any,editIndex:number){
     this.Pro_Model.dismissAll()
   }
 
-  addField(){
-   let row = document.createElement('div');  
-   row.className = 'row';
-   row.innerHTML = `
-      
-      <input type="text" class="form-control w-75 mb-3" placeholder="Enter details" >  `;
-   document.querySelector('.newFeild')?.appendChild( row)
-   
 
-  }
-  // add new input field to tke extra url
-  // addNewInput(){
-  //   let row= document.createElement('div');
-  //   row.className=`row`;
-  //   row.innerHTML=` <input type="url" class="form-control w-75 mb-2 mt-2" placeholder="enter url here"  formControlName="pro_URL"> 
-  //   <button class="btn btn-info w-auto h-auto" (click)="removeInputField()" class="deleteInput"> - </button> `;
-  //   document.querySelector('.newurl')?.appendChild(row);
-  // }
-  removeInputField(){
-    // document.querySelector('.newurl')?.removeChild(row);
-    console.log('new input');
-    
-
-  }
 
 
 }

@@ -28,6 +28,7 @@
     "@sweetalert2/ngx-sweetalert2": "^12.1.0",
     "bootstrap": "^5.2.3",
     "font-awesome": "^4.7.0",
+    "ng2-search-filter": "^0.5.1",
     "rxjs": "~7.5.0",
     "simple-ng-loader": "^2.0.0",
     "spinners-angular": "^0.0.5",

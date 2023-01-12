@@ -23,6 +23,7 @@
         </div>
         <div>
             <a class="nav-link mt-4" routerLink="/cart" routerLinkActive="routerActive" ><button class="btn btn-outline-warning text-black w-125 d-flex" [hidden]="productShow"> MyCart-<span *ngIf="cartArrValues.length >=1"> ({{cartlength}}) </span>  </button></a>
+            
         </div>
         <div>
             <a class="nav-link mt-4" routerLink="/logout" routerLinkActive="routerActive" ><button class="btn btn-outline-danger" [hidden]="logoutShow">Logout</button></a>
@@ -34,4 +35,10 @@
     </div>
 </div>
 
-<router-outlet></router-outlet>
+<router-outlet> </router-outlet>
+
+
+
+
+
+

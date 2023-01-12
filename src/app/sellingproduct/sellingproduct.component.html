@@ -4,33 +4,23 @@
         <div *ngFor="let sellProduct of lsForSellProduct; let i=index" class=" forProduct">
             <div>
                 <img src={{sellProduct.pro_url[0].urls}} alt="image" class="productImg" 
-                    data-bs-toogle="modal" data-bs-target="#myCarousel" (click)="showCarouselPopup(myCarousel,i)" >
-                  
+                    data-bs-toogle="modal" data-bs-target="#myCarousel" (click)="showCarouselPopup(myCarousel,i)" 
+                    ngbPopover="Click to see more images" triggers="mouseenter:mouseleave">    
                 <br><b> {{sellProduct.pro_name}} </b> <br>
-                <i>Price: <b> {{sellProduct.pro_price}}  $ </b></i>
-                
+                <i>Price: <b> {{sellProduct.Sellers[0].sell_price}}  $ </b></i>
               <div class="d-flex">
-                
-                <p> <button class="btn btn-primary  text-center ms-4">Buy</button> </p>
-                <p> <button class="btn btn-primary  text-center ms-4" (click)="addItemtoCart(i)"> 
-                  <fa-icon [icon]="faCartIcon" style="font-size:15px; color: black; " class="me-2"> </fa-icon>Add Cart</button> </p>
+                 <p> <button class="btn btn-warning ms-1" (click)="showItemDetails(Item_Detils,i)" 
+                    data-bs-toogle="modal" data-bs-target="#Item_Detils" ngbPopover="click to show details" triggers="mouseenter:mouseleave" >Details</button> </p>
+                  <p> <button class="btn btn-success  text-center ms-4">Buy</button> </p>
+                  <p> <button class="btn btn-primary  text-center ms-2" (click)="addItemtoCart(i)" ngbPopover="Add to cart" triggers="mouseenter:mouseleave"> 
+                    <fa-icon [icon]="faCartIcon" style="font-size:15px; color: black; " class="me-2"> </fa-icon></button> </p>  
               </div>
-                <!-- <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
-                <p> <button class="btn btn-primary w-75 text-center ms-4">Add to Cart</button> </p> -->
             </div>
         </div>
     </div>
 </div>
 
 <ng-template #myCarousel let-modal >
-    
-    <!-- <ngb-carousel>
-        <div *ngFor="let img of carouselImg">
-             <ng-template ngbSlide>
-                  <img src="img.urls" alt=" No img found">
-             </ng-template>
-        </div>
-    </ngb-carousel> -->
   
     <ngb-carousel *ngIf="carouselImgArr">
         <ng-template ngbSlide>
@@ -88,7 +78,41 @@
 </ng-template>
 
 
+<!-- Below one is showing for Item details -->
 
+<ng-template #Item_Detils let-modal>
+
+    <div>
+        <aside>
+          <div *ngFor="let seller of sellers; let i=index" class="ms-2 me-1">
+            <h2 class="text-center text-danger"> Seller {{i+1}}  </h2>
+            <div class=" text-black">
+                <p>Brand : <b class="bg-warning">{{seller.sell_brand}}</b></p>
+                <p> <small>Description:</small> <i>{{seller.sell_desc}}</i> </p>
+                <div class="d-flex">
+                    <p> Price:<b class="bg-warning"> {{seller.sell_price}} </b> </p>
+                    <button class="btn btn-primary  text-center ms-4" (click)="addItemtoCartSellers(i)" ngbPopover="add to cart" triggers="mouseenter:mouseleave"> 
+                       <fa-icon [icon]="faCartIcon" style="font-size:15px; color:black; " class="me-2"> </fa-icon></button>     
+                </div>
+                <hr>
+             </div>
+          </div>
+        </aside>
+
+        <div *ngIf=" itemDetails" class=" forProduct">
+           
+            <div>
+                <img src={{itemDetails.pro_url[0].urls}} alt="image" class="productImg">
+                  
+                <br><b> {{itemDetails.pro_name}} </b> <br>
+                <i>Price: <b> {{itemDetails.Sellers[0].sell_price}}  $ </b></i>
+                
+            </div>
+        </div>
+      
+    </div>
+
+</ng-template>
 
 
 

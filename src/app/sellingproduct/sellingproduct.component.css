@@ -14,13 +14,22 @@
     height: 170px;
     width: 100%;
     border-radius: 20px;
+margin-top: 33%;
 }
 .carouselImg{
     height: 50%;
     width: 100%;
 }
 
-
+aside{
+    width: 38%;
+    float: right;
+    font-style: italic;
+    /* background-color: rgb(238, 199, 131); */
+    margin-left: 25px;
+    border-radius: 20px;
+    border-left: 3px ridge rgb(6, 9, 177);
+}
 
 
 

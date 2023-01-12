@@ -15,7 +15,7 @@ export class AppComponent implements  OnInit,DoCheck{
   loginHidden:boolean=false;
   cartlength:number;
   cartArrValues:any;
-
+  cartHide:boolean=true
   constructor( private myCartItems:CartService ){  }
 
   ngOnInit():void{
@@ -42,6 +42,8 @@ ngDoCheck(): void {
       else{
         this.productShow=true;
         this.logoutShow=true;
+        this.loginHidden=false
+
       }
 // below functionality is used to show no of item in cart 
       this.cartArrValues=this.myCartItems.myCart;

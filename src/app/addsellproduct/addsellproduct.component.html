@@ -33,26 +33,47 @@
 
 
 <!-- below is for add product model -->
-<ng-template #add_product_Details let-model class="modal-content">
+<ng-template #add_product_Details let-model class="modal-content" >
     <div class="modelProduct">
         <div class="text-center">
             <h2 class="text-danger"> Add Product details</h2>
         </div>
         <form action="" [formGroup]="product_form" class="text-center">
             <div>
-                <input type="number" class="form-control w-75" placeholder="Enter Product ID" formControlName="pro_Id">
-                <input type="text" class="form-control w-75" placeholder="Enter Product Name" formControlName="pro_Name">
-                <input type="text" class="form-control w-75" placeholder="Enter Product Desc" formControlName="pro_Desc">
-                <input type="number" class="form-control w-75 mb-3" placeholder="Enter Product Price" formControlName="pro_Price">
+                <input type="number" class="form-control w-75" placeholder="Enter Product ID" formControlName="pro_Id"> <br>
+                <input type="text" class="form-control w-75" placeholder="Enter Product Name" formControlName="pro_Name"> <br>
             </div>
-            <div *ngFor=" let group of addingNewInput.controls; let i=index" formArrayName="pro_URL">
+            <!-- below is for adding multiple urls from user -->
+            <div *ngFor="let group of addingNewInput.controls; let i=index" formArrayName="pro_URL">
                 <div [formGroupName]="i" class="d-flex">
                     <input type="text" class="form-control w-50" placeholder="Entrer url here" formControlName="urls">
-                    <button *ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="removingInput(i)"> - </button>
+                    <span> <button *ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="removingInput(i)"> - </button> </span>
                 </div>
             </div>
             <div>
                 <button class="btn btn-primary" (click)="forNewInput()"> Add </button>
+            </div>
+            <!-- Below is for adding seller details -->
+            <div>
+                <table>
+                    <tr *ngFor="let sell of addSellerInput.controls; let i=index" formArrayName="seller">
+                       <div [formGroupName]="i">
+                        <td> 
+                            <input type="number" class="form-control w-75 mt-2" placeholder="Selling Price" formControlName="sell_price"> 
+                          </td>
+                          <td> 
+                            <input type="text" class="form-control w-75 " placeholder="Decription here" formControlName="sell_desc"> 
+                          </td>
+                          <td> 
+                            <input type="text" class="form-control w-75 " placeholder="Brand here" formControlName="sell_brand"> 
+                          </td>
+                          </div>
+                          <button *ngIf="i>0" class="btn btn-danger float-end " (click)="removeSeller(i)"> - </button>
+                    </tr> 
+                </table>
+            </div>
+            <div>
+                <button class="btn btn-primary" (click)="newSeller()">Seller_Details</button>
             </div>
     
                 <div class="d-flex">
@@ -94,7 +115,7 @@
                 <div class="newFeild">
 
                 </div>
-                <button class="btn btn-primary float-end me-5" (click)="addField()"> + </button>
+                <button class="btn btn-primary float-end me-5" > + </button>
             </div>
             <div class="d-flex mt-5">
                 <button class="btn btn-danger ps-3 ms-5 mb-3" (click)="closeModel()">Cancel</button>

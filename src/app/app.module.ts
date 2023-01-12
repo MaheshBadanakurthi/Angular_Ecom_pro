@@ -31,9 +31,7 @@ import { SellingComponent } from './selling/selling.component';
 import { AddsellproductComponent } from './addsellproduct/addsellproduct.component';
 import { SellingproductComponent } from './sellingproduct/sellingproduct.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
- 
-
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 const myNavigation:Routes=[
  {
   path:'',component:HomeComponent
@@ -104,7 +102,7 @@ const myNavigation:Routes=[
     CommonModule,
     FontAwesomeModule,
     MatProgressSpinnerModule,
-
+  
     
   ],
   providers: [ProductAuthService,LoginComponent,CartService],
