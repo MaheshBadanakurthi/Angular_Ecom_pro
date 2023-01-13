@@ -3,6 +3,7 @@ import { CartService } from '../cart.service';
 import {faCartArrowDown} from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-show-pro-details',
   templateUrl: './show-pro-details.component.html',
@@ -34,9 +35,9 @@ export class ShowProDetailsComponent implements OnInit {
     this.sellers = this.prod_Details.Sellers
     // this.categoryProductArr = this.lsSellingProducts.map((each:any)=>`${each.category === catgeroyName}`)
     console.log(this.categoryProductArr);
+    if(this.sellers){
     for(let i=0;i<x;i++){
       console.log('inside of for loop');
-      
       if(this.catgeroyName.toLowerCase() === (this.lsSellingProducts[i].category).toLowerCase()){
         console.log(this.catgeroyName.toLowerCase() === (this.lsSellingProducts[i].category).toLowerCase());
         this.similarProductObj = this.lsSellingProducts[i]
@@ -50,6 +51,7 @@ export class ShowProDetailsComponent implements OnInit {
       else{   console.log( 'If condition is false');
               }
     }
+  }
   
   }
 ngOnInit(): void {    }
@@ -71,6 +73,15 @@ ngOnInit(): void {    }
     
   }
 
+    
+
+  // IN below functionality I used cart service to store data n display in Details component
+  seeProductDetails(index:number){
+    console.log(this.similarProdcts[index] );
+    
+    this.cartS.show_Pro_Details( this.similarProdcts[index]  )
+    this.route.navigate(['/show_pro_Details'])
+  }
 
 
   

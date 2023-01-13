@@ -1,5 +1,5 @@
 .Detailshead{
-    /* background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); */
+    
     height: 80%;
     width: 80%;
     margin-top: 5%;
@@ -25,7 +25,7 @@ aside{
     margin-left: 5%; */
     padding-left: 10%;
     border-radius: 20px;
-    box-shadow: rgba(4, 10, 94, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgb(245, 192, 18) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+    /* box-shadow: rgba(4, 10, 94, 0.4) -5px 5px,    rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px; */
 }
 
 .sellerScroll{
@@ -42,8 +42,7 @@ aside{
 }
 
 .carousel{
-    box-shadow: rgba(252, 85, 7, 0.945) 0px 50px 80px -20px, rgb(4, 245, 56) 0px 30px 60px -30px, rgba(31, 6, 88, 0.952) 0px -2px 6px 0px inset;
-    border-radius: 20px;
+     border-radius: 20px;
 }
 
 .similarProduct{
@@ -56,8 +55,7 @@ aside{
     padding: 20px;
     flex-wrap: wrap;
     gap: 20;
-    box-shadow: rgba(252, 85, 7, 0.945) 0px 50px 80px -20px,rgba(31, 6, 88, 0.952) 0px -2px 6px 0px inset;
-}
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
 
 .similarImg{
     height: 230px;

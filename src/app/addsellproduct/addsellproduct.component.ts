@@ -124,35 +124,78 @@ get seller(){
   indexForUpdateDetails:number;
   lsToUpdate:any;
   lsJsonData:any;
+  editCatg:string;
+  editSellers:any=[]
+  editUrls:any=[]
+  editurls:any;
+  editsell_price:number;
+  editsell_desc:string;
+  editsell_brand:string;
+
 edit_Pro_Details(editDetails:any,editIndex:number){
    this.indexForUpdateDetails=editIndex;
-    // this.sellingProductsArr[editIndex]
-    console.log(this.sellingProductsArr[editIndex]);
+ 
+    console.log(editIndex)
+    
+    this.editCatg=this.sellingProductsArr[editIndex].category;
     this.editPro_id=this.sellingProductsArr[editIndex].pro_id,
       this.editPro_name=this.sellingProductsArr[editIndex].pro_name,
-      this.editPro_desc=this.sellingProductsArr[editIndex].pro_desc,
-      this.editPro_url=this.sellingProductsArr[editIndex].pro_url,
-      this.editPro_price=this.sellingProductsArr[editIndex].pro_price
+    this.editSellers= this.sellingProductsArr[editIndex].Sellers;
+    this.editUrls= this.sellingProductsArr[editIndex].pro_url
+    // console.log(this.editSellers);
+    // console.log(this.editUrls);
+   
      this.Pro_Model.open(editDetails)
   }
 // after editing, below functionality used for update that details.
-  updateEditedDetails(){
+updatedData:any={} 
+ 
+updateEditedDetails(){
     console.log(this.indexForUpdateDetails);
-    let updateObj={
-      id: this.editPro_id  ,
-      title:  this.editPro_name  ,
-      description:  this.editPro_desc,
-      image:this.editPro_url,
-      price: this.editPro_price  
+    console.log(this.editCatg,this.editPro_id,this.editPro_name);
+    console.log(this.editSellers);
+    console.log(this.editUrls);
+    for(let i=0;i<this.editSellers.length;i++){
+      this.editSellers[i]= {
+        sell_price:this.editsell_price,
+        sell_desc:this.editsell_desc,
+        sell_brand:this.editsell_brand
+      }
     }
-    this.sellingProductsArr[this.indexForUpdateDetails]=updateObj;
-    this.lsToUpdate= localStorage.getItem('selling_Products');
-    this.lsJsonData = JSON.parse(this.lsToUpdate)
-    this.lsJsonData[this.indexForUpdateDetails]=updateObj;
-    localStorage.setItem("selling_Products",JSON.stringify(this.lsJsonData))
-    // console.log( lsToUpdate[this.indexForUpdateDetails] );
+    console.log(this.editSellers);
+    
+    //  my sell pro arr
+  //    console.log(this.sellingProductsArr);
+  //  this.updatedData = {
+  //       category:this.editCatg,
+  //       pro_id:this.editPro_id,
+  //       pro_name:this.editPro_name,
+  //       Sellers:'',
+  //       pro_url:[
+  //         {  urls: }
+  //       ]
+
+  //  }
+
+
     this.Pro_Model.dismissAll()
   }
+
+  // below is remove urls
+removeUrl(index:number){
+  console.log(index);
+  console.log(this.editUrls);
+this.editUrls.splice(index,1)
+console.log(this.editUrls);
+}
+// below is for remove seller info
+removeSellerDetails(index:number){
+  console.log(index);
+  console.log(this.editSellers);
+  this.editSellers.splice(index,1)
+  console.log(this.editSellers);
+}
+
 
 
 
