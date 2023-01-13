@@ -1,7 +1,7 @@
 .Detailshead{
     /* background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); */
-    height: 90%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
     margin-top: 5%;
     box-shadow: rgba(252, 85, 7, 0.945) 0px 50px 100px -20px, rgb(4, 245, 56) 0px 30px 60px -30px, rgba(31, 6, 88, 0.952) 0px -2px 6px 0px inset;
     border-radius: 20px;
@@ -42,8 +42,81 @@ aside{
 }
 
 .carousel{
-     
     box-shadow: rgba(252, 85, 7, 0.945) 0px 50px 80px -20px, rgb(4, 245, 56) 0px 30px 60px -30px, rgba(31, 6, 88, 0.952) 0px -2px 6px 0px inset;
     border-radius: 20px;
 }
+
+.similarProduct{
+    height: 380px;
+    width: 300px;
+    /* background-color: aquamarine; */
+    border-radius: 20px;
+    display: inline-block;
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20;
+    box-shadow: rgba(252, 85, 7, 0.945) 0px 50px 80px -20px,rgba(31, 6, 88, 0.952) 0px -2px 6px 0px inset;
+}
+
+.similarImg{
+    height: 230px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.similarDiv{
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+
+footer{
+    background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    height: 150px;
+    width: 100%;
+    animation: mymove 2s infinite;
+    border-radius: 30px;
+}
+
+  
+  @keyframes mymove {
+    10% { background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);}
+    50% { background-image: linear-gradient(to right, #4d4949ce, #220ce7, #86ce7f);}
+    90% { background-image: linear-gradient(to right, #d60c0cce, #e2fa08, #86ce7f);}
+  }
+
+
+.footerText {
+   padding-top: 10px;
+    letter-spacing: 2px;
+    animation: myText 5s infinite;
+  }
+  
+  @keyframes myText {
+    15% {letter-spacing: 30px;
+        color: rgb(98, 100, 230);
+    }
+    45% {letter-spacing: 30px;
+        color: rgb(43, 66, 36);
+        font-weight: 700;
+    }
+    78% {letter-spacing: 30px;
+        color: White;
+        text-shadow: 3px ridge black;
+    }
+  }
+
+
+
+
+
+
+
+
+
 
