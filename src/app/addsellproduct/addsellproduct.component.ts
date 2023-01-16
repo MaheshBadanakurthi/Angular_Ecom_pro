@@ -1,7 +1,7 @@
 
 
 
-import { Component,DoCheck,OnInit } from '@angular/core';
+import { Component,DoCheck,ElementRef,OnInit, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, FormArray, FormBuilder} from '@angular/forms';
 import { faE, faTrashCan } from '@fortawesome/free-solid-svg-icons'
@@ -131,6 +131,8 @@ get seller(){
   editsell_price:number;
   editsell_desc:string;
   editsell_brand:string;
+ 
+
 
 edit_Pro_Details(editDetails:any,editIndex:number){
    this.indexForUpdateDetails=editIndex;
@@ -142,41 +144,37 @@ edit_Pro_Details(editDetails:any,editIndex:number){
       this.editPro_name=this.sellingProductsArr[editIndex].pro_name,
     this.editSellers= this.sellingProductsArr[editIndex].Sellers;
     this.editUrls= this.sellingProductsArr[editIndex].pro_url
-    // console.log(this.editSellers);
-    // console.log(this.editUrls);
+    console.log(this.editSellers);
+    console.log(this.editUrls);
    
      this.Pro_Model.open(editDetails)
   }
-// after editing, below functionality used for update that details.
+   
+   
+ // after editing, below functionality used for update that details.
 updatedData:any={} 
  
-updateEditedDetails(){
+updateEditedDetails( ){
+ 
     console.log(this.indexForUpdateDetails);
     console.log(this.editCatg,this.editPro_id,this.editPro_name);
     console.log(this.editSellers);
-    console.log(this.editUrls);
-    for(let i=0;i<this.editSellers.length;i++){
-      this.editSellers[i]= {
-        sell_price:this.editsell_price,
-        sell_desc:this.editsell_desc,
-        sell_brand:this.editsell_brand
-      }
-    }
-    console.log(this.editSellers);
+     console.log(this.editUrls);
+     
     
     //  my sell pro arr
-  //    console.log(this.sellingProductsArr);
-  //  this.updatedData = {
-  //       category:this.editCatg,
-  //       pro_id:this.editPro_id,
-  //       pro_name:this.editPro_name,
-  //       Sellers:'',
-  //       pro_url:[
-  //         {  urls: }
-  //       ]
-
-  //  }
-
+   this.updatedData = {
+        category:this.editCatg,
+        pro_id:this.editPro_id,
+        pro_name:this.editPro_name,
+        Sellers:this.editSellers,
+        pro_url:this.editUrls
+   }
+   console.log(this.updatedData);
+   console.log(this.sellingProductsArr);
+   this.sellingProductsArr[this.indexForUpdateDetails] = this.updatedData
+   console.log(this.sellingProductsArr);
+   localStorage.setItem("selling_Products",JSON.stringify(this.sellingProductsArr))
 
     this.Pro_Model.dismissAll()
   }

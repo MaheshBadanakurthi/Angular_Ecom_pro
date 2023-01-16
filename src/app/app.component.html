@@ -1,17 +1,15 @@
 
 <!-- <app-navbar> </app-navbar> -->
 
-<div >
+<!-- <div >
     <div class="fornav">
        <marquee behavior="scroll" scrollamount="3" direction="right" > <mat-icon class="walk"> directions_walk</mat-icon>  <mat-icon class="cart mt-5">local_grocery_store</mat-icon>   </marquee>
-       <!-- <img src="https://tse1.mm.bing.net/th?id=OIP.zYqzWWh9L_z7FauYuXQedwHaHa&pid=Api&P=0" alt=""  > -->
         <div>
             <a class="nav-link mt-4" routerLink="" routerLinkActive="routerActive"><button class="btn btn-outline-primary">Home</button></a>
 
         </div>
         
         <div>
-            <a class="nav-link mt-4" routerLink="/login" routerLinkActive="routerActive"><button class="btn btn-outline-success text-info" [hidden]="loginHidden">LogIn</button></a>
 
         </div>
         <div>
@@ -36,13 +34,51 @@
         </div>
         
     </div>
-</div>
-
-<router-outlet> </router-outlet>
+</div> -->
 
 
 
+<nav class="navbar navbar-expand-sm  navbar-expand-md bg-secondary   hidden-sm hidden-xs h-auto visible-xs visible-sm visible-md ">
 
-
-
-
+      <button class="navbar-toggler navbar-toggler-left" 
+      type="button"
+      aria-controls="mobileNavbar"
+      aria-expanded="false"
+      [attr.aria-expanded]="!isCollapsed" 
+      aria-label="Toggle mobile navigation"
+      (click)="toggleMenu()"
+      >
+      <span class="dark-white-black">
+      <fa-icon [icon]=menuBar> </fa-icon> </span>
+    </button>
+    <div class="collapse navbar-collapse" id="mobileNavbar" [ngbCollapse]="isCollapsed">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link mt-4" routerLink="" routerLinkActive="routerActive"><button class="btn btn-outline-primary">Home</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-4" routerLink="/login" routerLinkActive="routerActive"><button class="btn btn-outline-success text-white" [hidden]="loginHidden">LogIn</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-4" routerLink="/signup" routerLinkActive="routerActive" ><button class="btn btn-outline-white" [hidden]="loginHidden">SignUp</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-4" routerLink="/products" routerLinkActive="routerActive" ><button class="btn btn-outline-success text-white" [hidden]="productShow">Products</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-4" routerLink="/cart" routerLinkActive="routerActive" ><button class="btn btn-outline-warning text-white w-125 d-flex" [hidden]="productShow"> MyCart-<span *ngIf="cartArrValues.length >=1"> ({{cartlength}}) </span>  </button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-4" routerLink="/logout" routerLinkActive="routerActive" ><button class="btn btn-outline-danger" [hidden]="logoutShow">Logout</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-4" routerLink="/selling" routerLinkActive="routerActive" ><button class="btn btn-outline-warning text-white" [hidden]="logoutShow">Selling</button></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mt-4" routerLink="/show_pro_Details" routerLinkActive="routerActive" ><button class="btn btn-outline-warning text-white" [hidden]="logoutShow">details</button></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+ 
+   <router-outlet> </router-outlet> 

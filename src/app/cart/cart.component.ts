@@ -2,6 +2,8 @@ import { Component,OnInit,DoCheck,ViewChild, ElementRef} from '@angular/core';
 import { CartService } from '../cart.service';
 import { faTrashRestore } from '@fortawesome/free-solid-svg-icons'
 import { NONE_TYPE } from '@angular/compiler';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,7 +16,7 @@ export class CartComponent implements OnInit,DoCheck {
   Pro_Cost:number;
   priceArr:any=[]
   GrandTotal:number=0;
-  constructor( private toCartArr:CartService ) {  this.cartArr=this.toCartArr.myCart;  }
+  constructor( private toCartArr:CartService, private popup:NgbModal ) {  this.cartArr=this.toCartArr.myCart;  }
 // when Cart component loads in browser by default ngOnint  Loads first.
 ngOnInit(): void {
     this.priceArr=this.cartArr.map((item:any)=> Number(` ${item.price} `) )
@@ -31,15 +33,10 @@ ngDoCheck(): void {
   
   if(this.cartArr.length ===0){
     // console.log();
-    
   }
 else{
-  this.GrandTotal=(this.priceArr.reduce((x:any,y:any)=> (x+y))).toFixed(2)
-
-} 
-
-//  console.log( [1,4,7,2,16].reduce((s,x)=>(s+x)));
-
+  this.GrandTotal=(this.priceArr.reduce((x:number,y:number)=> (x+y))).toFixed(2);
+  } 
 }
 
 increment(i:number){
@@ -69,5 +66,13 @@ decrement(i:number){
     this.priceArr.splice(removeIndex,1)
     this.toCartArr.deleteItem(removeIndex)
   }  
+
+  popupObj:any={}
+  pro_Details(modal_Popup:any,index:number){
+    this.popup.open(modal_Popup);
+    this.popupObj=this.cartArr[index]
+  }
+
+
 
 }

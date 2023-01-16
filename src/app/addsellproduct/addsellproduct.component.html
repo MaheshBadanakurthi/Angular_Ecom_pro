@@ -1,15 +1,15 @@
-<div>
+<div class="addCartBg visible-xs visible-sm visible-md ">
     <button class="btn btn-primary ms-5 mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#add_product_Details"
         (click)="addProductDetails(add_product_Details)">Add Product</button>
 </div>
-<div>
+<div class="addCartBg visible-xs visible-sm visible-md">
     <table class="table table-primary table-bordered ms-5 ml-5">
         <thead class="text-center">
             <th>P_Id</th>
             <th>P_Name</th>
             <th>P_Desc</th>
             <th>P_Price</th>
-            <th>Img_Url</th>   
+            <th>Img_Url</th>
             <th>Action</th>
 
         </thead>
@@ -33,22 +33,26 @@
 
 
 <!-- below is for add product model -->
-<ng-template #add_product_Details let-model class="modal-content" >
+<ng-template #add_product_Details let-model class="modal-content">
     <div class="modelProduct">
         <div class="text-center">
             <h2 class="text-danger"> Add Product details</h2>
         </div>
         <form action="" [formGroup]="product_form" class="text-center">
             <div>
-                <input type="text" class="form-control w-75" placeholder="Enter Category" formControlName="category"> <br>
-                <input type="number" class="form-control w-75" placeholder="Enter Product ID" formControlName="pro_Id"> <br>
-                <input type="text" class="form-control w-75" placeholder="Enter Product Name" formControlName="pro_Name"> <br>
+                <input type="text" class="form-control w-75" placeholder="Enter Category" formControlName="category">
+                <br>
+                <input type="number" class="form-control w-75" placeholder="Enter Product ID" formControlName="pro_Id">
+                <br>
+                <input type="text" class="form-control w-75" placeholder="Enter Product Name"
+                    formControlName="pro_Name"> <br>
             </div>
             <!-- below is for adding multiple urls from user -->
             <div *ngFor="let group of addingNewInput.controls; let i=index" formArrayName="pro_URL">
                 <div [formGroupName]="i" class="d-flex">
                     <input type="text" class="form-control w-50" placeholder="Entrer url here" formControlName="urls">
-                    <span> <button *ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="removingInput(i)"> - </button> </span>
+                    <span> <button *ngIf="i>0" class="btn btn-danger float-end mb-2" (click)="removingInput(i)"> -
+                        </button> </span>
                 </div>
             </div>
             <div>
@@ -58,30 +62,33 @@
             <div>
                 <table>
                     <tr *ngFor="let sell of addSellerInput.controls; let i=index" formArrayName="seller">
-                       <div [formGroupName]="i">
-                        <td> 
-                            <input type="number" class="form-control w-75 mt-2" placeholder="Selling Price" formControlName="sell_price"> 
-                          </td>
-                          <td> 
-                            <input type="text" class="form-control w-75 " placeholder="Decription here" formControlName="sell_desc"> 
-                          </td>
-                          <td> 
-                            <input type="text" class="form-control w-75 " placeholder="Brand here" formControlName="sell_brand"> 
-                          </td>
-                          </div>
-                          <button *ngIf="i>0" class="btn btn-danger float-end " (click)="removeSeller(i)"> - </button>
-                    </tr> 
+                        <div [formGroupName]="i">
+                            <td>
+                                <input type="number" class="form-control w-75 mt-2" placeholder="Selling Price"
+                                    formControlName="sell_price">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control w-75 " placeholder="Decription here"
+                                    formControlName="sell_desc">
+                            </td>
+                            <td>
+                                <input type="text" class="form-control w-75 " placeholder="Brand here"
+                                    formControlName="sell_brand">
+                            </td>
+                        </div>
+                        <button *ngIf="i>0" class="btn btn-danger float-end " (click)="removeSeller(i)"> - </button>
+                    </tr>
                 </table>
             </div>
             <div>
                 <button class="btn btn-primary" (click)="newSeller()">Seller_Details</button>
             </div>
-    
-                <div class="d-flex">
-                    <button class="btn btn-danger " (click)="closeModel()">Cancel</button>
-                    <button class="btn btn-success ms-5" (click)="addProDetails()" type="submit">AddDetails</button>
-                </div>
-                
+
+            <div class="d-flex">
+                <button class="btn btn-danger " (click)="closeModel()">Cancel</button>
+                <button class="btn btn-success ms-5" (click)="addProDetails()" type="submit">AddDetails</button>
+            </div>
+
         </form>
     </div>
 
@@ -93,30 +100,35 @@
 <ng-template #Edit_product_Details let-model class="modal-content">
     <div class="modelProduct">
         <div class="text-center">
-            <h2 class="text-danger"> Add Product details</h2>
+            <h2 class="text-danger"> Edit Product details</h2>
         </div>
         <form action="" class="text-center">
 
             <div>
                 <input type="text" class="form-control w-75" placeholder="Enter Product category" value="{{editCatg}}"
-                [(ngModel)]="editCatg" name="editCatg"><br>
+                    [(ngModel)]="editCatg" name="editCatg"><br>
                 <input type="number" class="form-control w-75" placeholder="Enter Product ID" value="{{ editPro_id}}"
                     [(ngModel)]="editPro_id" name="editProId"><br>
 
-                <input type="text" class="form-control w-75" placeholder="Enter Product Name" value="{{ editPro_name}}"
+                <input type="text" class="form-control w-75" placeholder="Enter Product Name" value="{{editPro_name}}"
                     [(ngModel)]="editPro_name" name="editProName"><br>
-
-                <div *ngFor="let imgurl of editUrls;let i=index" class="d-flex">
-                    <input type="text" [(ngModel)]="editurls" name="editurl" class="form-control w-75 mt-1" placeholder="enter img url" value='{{imgurl.urls}}'>
-                    <button class="btn btn-danger" (click)="removeUrl(i)"> - </button>
-                </div>
+                
+                    <div *ngFor="let imgurl of editUrls;let i=index" class="d-flex">
+                        <input type="text" class="form-control w-75 mt-1" placeholder="enter img url"
+                            [(ngModel)]='imgurl.urls' name="imgurl">
+                        <button class="btn btn-danger" (click)="removeUrl(i)"> - </button>
+                    </div>
+                 
                 <table>
                     <tr *ngFor="let sellers of editSellers; let i=index">
-                        <td> <input type="number" [(ngModel)]="editsell_price" name="editsellPrice" value="{{sellers.sell_price}}" class="form-control w-75"> </td>
-                        <td> <input type="text" [(ngModel)]="editsell_desc" name="editsellDesc" value="{{sellers.sell_desc}}" class="form-control w-100"> </td>
-                        <td> <input type="text" [(ngModel)]="editsell_brand" name="editsellBrand" value="{{sellers.sell_brand}}" class="form-control w-75"> </td>
+                        <!-- below we are using two way binding to edit the data n get -->
+                        <td> <input type="number" [(ngModel)]='sellers.sell_price' name=`sellPrice`
+                                class="form-control w-75"> </td>
+                        <td> <input type="text" [(ngModel)]='sellers.sell_desc' name=`sellDesc`
+                                class="form-control w-100"> </td>
+                        <td> <input type="text" [(ngModel)]='sellers.sell_brand' name=`sellBrand`
+                                class="form-control w-75"> </td>
                         <button class="btn btn-danger" (click)="removeSellerDetails(i)"> - </button>
-
                     </tr>
                 </table>
             </div>

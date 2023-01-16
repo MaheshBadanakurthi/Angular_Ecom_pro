@@ -1,6 +1,7 @@
 .producthead{
     background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
-    height: 150px;
+    max-height: 150px;
+    min-height: 80px;
     width: 100%;
     
 }

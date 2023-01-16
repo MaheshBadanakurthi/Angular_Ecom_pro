@@ -1,4 +1,4 @@
-<div class="addCartBg">
+<div class="addCartBg visible-xs visible-sm visible-md">
 
     <div *ngIf="cartArr.length==0">
        <div class="container imgdiv">
@@ -6,8 +6,6 @@
        </div>
 
     </div>
-
-
 
     <div class="container tablediv" *ngIf="cartArr.length!=0">
         <table class="table table-bordered">
@@ -20,7 +18,7 @@
             </thead>
 
             <tbody *ngFor="let item of cartArr; let i=index" class="text-center">
-                <td> <img src={{item.image}} alt=" image" class="productImg"> </td>
+                <td> <img src={{item.image}} alt=" image" class="productImg" data-bs-toogle="modal" data-bs-target="#Pro_details" (click)="pro_Details(Pro_details,i)"> </td>
 
                 <td class=" text-wrap ProductDesc pt-4"> {{item.title}} </td>
 
@@ -51,5 +49,28 @@
     </div>
 
 
-
 </div>
+
+
+<!-- Modale popup -->
+<ng-template #Pro_details let-modal>
+    <div *ngIf="popupObj">
+        <div>
+            <img src={{popupObj.image}} alt="" class="popupImg">
+        </div>
+       <aside>
+        <div>
+            <b>Brand : {{popupObj.title}} </b>
+        </div>
+        <div>
+           <p>Price : <b> {{popupObj.price}} </b> </p>
+        </div>
+       </aside>
+
+    </div>
+
+</ng-template>
+
+
+
+

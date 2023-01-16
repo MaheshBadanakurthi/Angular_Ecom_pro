@@ -1,5 +1,6 @@
 import { Component,OnInit,DoCheck} from '@angular/core';
  import { CartService } from './cart.service';
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,9 @@ export class AppComponent implements  OnInit,DoCheck{
   loginHidden:boolean=false;
   cartlength:number;
   cartArrValues:any;
-  cartHide:boolean=true
+  cartHide:boolean=true;
+  isCollapsed:boolean=true
+  menuBar=faBars
   constructor( private myCartItems:CartService ){  }
 
   ngOnInit():void{
@@ -51,6 +54,11 @@ ngDoCheck(): void {
         this.cartlength=this.cartArrValues.length
       }
 
+}
+
+toggleMenu() 
+{
+  this.isCollapsed = !this.isCollapsed;
 }
 
 

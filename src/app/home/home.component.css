@@ -1,6 +1,6 @@
 .bgimg{
-    background-image: url('https://img.freepik.com/free-vector/banner-online-shopping-with-gift-platform-cart-with-shopping-bag-isolated-white-background-vector-illustration_548887-187.jpg?w=1060&t=st=1672738102~exp=1672738702~hmac=6c7c3dc74444329136f94e6a1dfcab4ae7b5ced005f7a7926101d5940ee9a5e5');
-    height: 100%;
+    /* background-image: url('https://img.freepik.com/free-vector/banner-online-shopping-with-gift-platform-cart-with-shopping-bag-isolated-white-background-vector-illustration_548887-187.jpg?w=1060&t=st=1672738102~exp=1672738702~hmac=6c7c3dc74444329136f94e6a1dfcab4ae7b5ced005f7a7926101d5940ee9a5e5'); */
+    height: 100vh;
     width: 100%;
     background-size:cover;
     background-repeat: no-repeat;

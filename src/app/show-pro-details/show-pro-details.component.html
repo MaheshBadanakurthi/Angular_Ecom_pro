@@ -1,7 +1,7 @@
 <div class="container Detailshead">
 
     <div *ngIf="!sellers">
-        <h1 class="text-center text-danger">U don't have a product to check</h1>
+        <h1 class="text-center text-danger pt-5 fs-1">U don't have a product to check</h1>
     </div>
 
     <div *ngIf="sellers">
@@ -60,7 +60,7 @@
 
 
 <div class=" container  ">
-    <h1 class="text-warning  text-center mt-5 bg-black"> We also Refer These Products </h1>
+    <h1 class="text-warning  text-center mt-5 bg-black rounded-pill"> We also Refer These Products </h1>
     <div class="similarDiv">
         <div class="similarProduct" *ngFor="let similar of similarProdcts; let i=index">
 
