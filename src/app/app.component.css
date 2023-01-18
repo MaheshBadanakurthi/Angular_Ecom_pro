@@ -23,8 +23,8 @@ body{
 }
 
 button:hover{
-    background-color: white;
-    color: black;
+    background-color: rgb(12, 11, 11);
+    color: white;
     box-shadow: 8px 6px rgb(200, 252, 15);
     font-size: 22px;
     border-radius: 2px 22px 2px 22px;

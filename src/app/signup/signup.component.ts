@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  constructor(private myrout:Router){  }
+  constructor(private myrout: Router) { }
   ngOnInit(): void {
 
   }
@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
     this.nameValid = true;
     console.log(this.user_password?.value);
     console.log(this.confirm_pswd?.value);
-// console.log("My status",this.signUpForm.valid);
+    // console.log("My status",this.signUpForm.valid);
 
     if (this.signUpForm.valid) {
 
@@ -55,10 +55,12 @@ export class SignupComponent implements OnInit {
         userpswd: this.user_password?.value
       }
       console.log(this.localStoragArr);
-      
+
       this.localStoragArr.push(this.userDetails)
       console.log(this.localStoragArr);
+
       localStorage.setItem("userDetails", JSON.stringify(this.localStoragArr))
+
       this.signUpForm.reset()
 
       Swal.fire({

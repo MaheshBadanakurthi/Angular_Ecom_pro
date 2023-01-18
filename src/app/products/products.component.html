@@ -1,57 +1,55 @@
 <div class="divbody ">
-    <p></p>
-    <div class="container producthead">
-        <h1 class="quote">Shopping means</h1>
-        <p class="text-end text-wrap"> <b>Not only Leave the stress n anxiety. Its a way of showing LOVE towards the Loved
-                One's</b> </p>
-    </div>
-    <div class="categories">
-        <div> <button class="btn btn-primary categorybutton">ALL</button> </div>
-        <div> <button class="btn btn-primary categorybutton">Men</button> </div>
-        <div><button class="btn btn-primary categorybutton">Women</button> </div>
-        <input class="form-control w-50" type="text" name="search" [(ngModel)]="searchProducts" autocomplete="off"
-         placeholder="Search Products">    </div>
-    <!-- Spinner -->
-    <div class="spinner">
-      <mat-spinner *ngIf="myLoader" >   </mat-spinner>
-    </div>
+  <p></p>
+  <div class="container producthead">
+    <h1 class="quote">Shopping means</h1>
+    <p class="text-end text-wrap"> <b>Not only Leave the stress n anxiety. Its a way of showing LOVE towards the Loved
+        One's</b> </p>
+  </div>
+  <div class="categories">
+    <div> <button class="btn btn-primary categorybutton">ALL</button> </div>
+    <div> <button class="btn btn-primary categorybutton">Men</button> </div>
+    <div><button class="btn btn-primary categorybutton">Women</button> </div>
+    <input class="form-control w-50" type="text" name="search" [(ngModel)]="searchProducts" autocomplete="off"
+      placeholder="Search Products">
+  </div>
+  <!-- Spinner -->
+  <div class="spinner">
+    <mat-spinner *ngIf="myLoader"> </mat-spinner>
+  </div>
 
-    <div *ngIf="!myLoader">
-      <!-- below filter is for search products -->
-    <div *ngFor="let product of myProducts | filter:searchProducts ; let i=index" class=" forProduct" >
-        <div>
-            <img src={{product.image}} alt="image" class="productImg" (click)="showProductDetails(modalData,i)"
-            data-bs-toggle="modal" data-bs-target="#product_Details" >
-              
-            <br><b>{{product.title}}</b> <br>
-            <i>Price: <b>{{product.price}} $ </b></i>
-            <b class="ms-4"> Rating: {{product.rating.rate}}</b>
-          <div class="d-flex">
-            
-            <p> <button class="btn btn-primary  text-center ms-4">Buy</button> </p>
-            <p> <button class="btn btn-primary  text-center ms-4" (click)="addToCart(i)"> 
-              <fa-icon [icon]="faCartIcon" style="font-size:15px; color: black; " class="me-2"> </fa-icon>Add Cart</button> </p>
-          </div>
-            <!-- <p> <button class="btn btn-primary w-75 text-center ms-4">Buy</button> </p>
-            <p> <button class="btn btn-primary w-75 text-center ms-4">Add to Cart</button> </p> -->
+  <div *ngIf="!myLoader">
+    <!-- below filter is for search products -->
+    <div *ngFor="let product of myProducts | filter:searchProducts ; let i=index" class=" forProduct">
+      <div>
+        <img src={{product.image}} alt="image" class="productImg" (click)="showProductDetails(modalData,i)"
+          data-bs-toggle="modal" data-bs-target="#product_Details">
+        <br><b>{{product.title}}</b> <br>
+        <i>Price: <b>{{product.price}} $ </b></i>
+        <b class="ms-4"> Rating: {{product.rating.rate}}</b>
+        <div class="d-flex">
+          <p> <button class="btn btn-primary  text-center ms-4">Buy</button> </p>
+          <p> <button class="btn btn-primary  text-center ms-4" (click)="addToCart(i)">
+              <fa-icon [icon]="faCartIcon" style="font-size:15px; color: black; " class="me-2"> </fa-icon>Add
+              Cart</button> </p>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
 
- <ng-template #modalData let-modal>
-   <div class="modal-header">
-        <h4 class="text-center">Product Details</h4>
-   </div>
-   <div class="modal-body">
-    <img src={{myProducts[prod_index].image}} alt="image" class="product_Details">
-    <br><b>{{myProducts[prod_index].title}}</b> <br>
-    <i>Price: <b>{{myProducts[prod_index].price}} $ </b></i>
-    <b class="ms-4"> Rating: {{myProducts[prod_index].rating.rate}}</b>
-   </div>
-   <div class="modal-footer">
-     <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
-   </div>
- </ng-template>
+  <ng-template #modalData let-modal>
+    <div class="modal-header">
+      <h4 class="text-center">Product Details</h4>
+    </div>
+    <div class="modal-body">
+      <img src={{myProducts[prod_index].image}} alt="image" class="product_Details">
+      <br><b>{{myProducts[prod_index].title}}</b> <br>
+      <i>Price: <b>{{myProducts[prod_index].price}} $ </b></i>
+      <b class="ms-4"> Rating: {{myProducts[prod_index].rating.rate}}</b>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>
 
 
 

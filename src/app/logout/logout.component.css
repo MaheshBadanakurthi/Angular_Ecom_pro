@@ -1,23 +1,18 @@
-.logoutbg{
+.logoutbg {
     background-image: url('https://img.freepik.com/free-vector/businessman-running-escape-exit_74855-6275.jpg?size=626&ext=jpg&ga=GA1.1.2099716861.1672737875&semt=sph');
     background-size: cover;
     height: 100%;
     width: 100%;
     border-radius: 10px;
 }
-
-.logout{
+.logout {
     border: 2px solid black;
     margin: 0 auto;
     width: 30%;
     padding: 7%;
-    /* margin-top: 5%; */
-transform:translateY(100px);
-   border-radius: 20px;
+    transform: translateY(100px);
+    border-radius: 20px;
 }
-.logoutimg{
-   
+.logoutimg {
     height: 70px;
-    
 }
-

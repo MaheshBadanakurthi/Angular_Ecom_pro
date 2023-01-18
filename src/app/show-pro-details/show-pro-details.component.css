@@ -1,5 +1,5 @@
-.Detailshead{
-    
+.Detailshead {
+
     height: 80%;
     width: 80%;
     margin-top: 5%;
@@ -8,7 +8,7 @@
 }
 
 
-aside{
+aside {
     width: 38%;
     float: right;
     font-style: italic;
@@ -17,7 +17,7 @@ aside{
     border-left: 3px ridge rgb(6, 9, 177);
 }
 
-.forimage{
+.forimage {
     height: 400px;
     width: 400px;
     /* margin-top: 2%;
@@ -28,24 +28,24 @@ aside{
     /* box-shadow: rgba(4, 10, 94, 0.4) -5px 5px,    rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px; */
 }
 
-.sellerScroll{
+.sellerScroll {
     margin-top: 1%;
-     width: 100%;
+    width: 100%;
     height: 410px;
-    overflow-y:scroll;
+    overflow-y: scroll;
 }
 
-.pro_details{
-    padding-top: 30px ;
+.pro_details {
+    padding-top: 30px;
     padding-left: 20px;
     font-size: 20px;
 }
 
-.carousel{
-     border-radius: 20px;
+.carousel {
+    border-radius: 20px;
 }
 
-.similarProduct{
+.similarProduct {
     height: 380px;
     width: 300px;
     /* background-color: aquamarine; */
@@ -55,15 +55,16 @@ aside{
     padding: 20px;
     flex-wrap: wrap;
     gap: 20;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;}
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
 
-.similarImg{
+.similarImg {
     height: 230px;
     width: 100%;
     border-radius: 20px;
 }
 
-.similarDiv{
+.similarDiv {
     gap: 20px;
     display: flex;
     justify-content: center;
@@ -73,7 +74,7 @@ aside{
 
 
 
-footer{
+footer {
     background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
     height: 150px;
     width: 100%;
@@ -81,40 +82,43 @@ footer{
     border-radius: 30px;
 }
 
-  
-  @keyframes mymove {
-    10% { background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);}
-    50% { background-image: linear-gradient(to right, #4d4949ce, #220ce7, #86ce7f);}
-    90% { background-image: linear-gradient(to right, #d60c0cce, #e2fa08, #86ce7f);}
-  }
+
+@keyframes mymove {
+    10% {
+        background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
+    }
+
+    50% {
+        background-image: linear-gradient(to right, #4d4949ce, #220ce7, #86ce7f);
+    }
+
+    90% {
+        background-image: linear-gradient(to right, #d60c0cce, #e2fa08, #86ce7f);
+    }
+}
 
 
 .footerText {
-   padding-top: 10px;
+    padding-top: 10px;
     letter-spacing: 2px;
     animation: myText 5s infinite;
-  }
-  
-  @keyframes myText {
-    15% {letter-spacing: 30px;
+}
+
+@keyframes myText {
+    15% {
+        letter-spacing: 30px;
         color: rgb(98, 100, 230);
     }
-    45% {letter-spacing: 30px;
+
+    45% {
+        letter-spacing: 30px;
         color: rgb(43, 66, 36);
         font-weight: 700;
     }
-    78% {letter-spacing: 30px;
+
+    78% {
+        letter-spacing: 30px;
         color: White;
         text-shadow: 3px ridge black;
     }
-  }
-
-
-
-
-
-
-
-
-
-
+}

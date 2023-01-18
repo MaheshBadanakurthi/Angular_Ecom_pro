@@ -1,39 +1,43 @@
-.producthead{
+.producthead {
     background-image: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d);
     max-height: 150px;
     min-height: 80px;
     width: 100%;
-    
 }
-.quote{
-    font-family: "Great Vibes", cursive; font-size: 49px;
-     line-height: 107px; 
-     margin-top: 10px; 
-    text-align: center; text-shadow: 0 1px 1px #fff;
+
+.quote {
+    font-family: "Great Vibes", cursive;
+    font-size: 49px;
+    line-height: 107px;
+    margin-top: 10px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
 }
-img:hover{
+
+img:hover {
     cursor: pointer;
 }
+
 .producthead i {
     font-weight: 600px;
-    
 }
-.divbody{
+
+.divbody {
     background-color: white;
-    /* height: 100%; */
-    
 }
-.categories{
+
+.categories {
     display: flex;
     gap: 6%;
     margin-left: 10%;
     margin-top: 1%;
 }
 
-.categorybutton{
-    border-radius: 20px 1px 20px 1px ;
+.categorybutton {
+    border-radius: 20px 1px 20px 1px;
 }
- button:hover{
+
+button:hover {
     background-color: rgb(229, 253, 15);
     box-shadow: 10px 5px rgb(247, 7, 207);
     font-size: 20px;
@@ -41,35 +45,31 @@ img:hover{
     font-family: sans-serif;
 }
 
-.forProduct{
+.forProduct {
     height: 300px;
     width: 250px;
-    background-color:white;
-
+    background-color: white;
     margin-left: 4%;
     margin-top: 1%;
     border-radius: 22px;
     display: inline-block;
-    
-
 }
-.productImg{
-   
+
+.productImg {
+
     height: 170px;
     width: 100%;
     border-radius: 20px;
 }
-.product_Details{
+
+.product_Details {
     height: 55%;
     width: 100%;
     border-radius: 20px;
 }
 
-.spinner{
-  display: flex;
-  justify-content: center;
+.spinner {
+    display: flex;
+    justify-content: center;
 
 }
-
-
-

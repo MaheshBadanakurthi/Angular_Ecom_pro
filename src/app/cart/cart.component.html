@@ -1,9 +1,10 @@
 <div class="addCartBg visible-xs visible-sm visible-md">
 
     <div *ngIf="cartArr.length==0">
-       <div class="container imgdiv">
-            <img src="https://cdni.iconscout.com/illustration/premium/thumb/confusing-woman-due-to-empty-cart-4558760-3780056.png" alt=""  class="emptyCart">
-       </div>
+        <div class="container imgdiv">
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/confusing-woman-due-to-empty-cart-4558760-3780056.png"
+                alt="" class="emptyCart">
+        </div>
 
     </div>
 
@@ -18,30 +19,36 @@
             </thead>
 
             <tbody *ngFor="let item of cartArr; let i=index" class="text-center">
-                <td> <img src={{item.image}} alt=" image" class="productImg" data-bs-toogle="modal" data-bs-target="#Pro_details" (click)="pro_Details(Pro_details,i)"> </td>
+                <td> <img src={{item.image}} alt=" image" class="productImg" data-bs-toogle="modal"
+                        data-bs-target="#Pro_details" (click)="pro_Details(Pro_details,i)"> </td>
 
                 <td class=" text-wrap ProductDesc pt-4"> {{item.title}} </td>
 
-                <td class="pt-4">    <button class="btn btn-danger bg-black" type="button" (click)="decrement(i)">  -  </button>
+                <td class="pt-4"> <button class="btn btn-danger bg-black" type="button" (click)="decrement(i)"> -
+                    </button>
                     <!-- <input type="number" class="w-25 bg-white ps-3" [value]="noOfItems[i]" max="5" min="1"> -->
                     <b> {{ noOfItems[i] }} </b>
-                    <button type="button" class="btn btn-danger bg-black" (click)="increment(i)">  +  </button>
+                    <button type="button" class="btn btn-danger bg-black" (click)="increment(i)"> + </button>
                 </td>
 
-                <td class="pt-4 " > 
-                   <b >{{(noOfItems[i]*item.price).toFixed(2)}}</b>
-                    <i>$</i> </td>
+                <td class="pt-4 ">
+                    <b>{{(noOfItems[i]*item.price).toFixed(2)}}</b>
+                    <i>$</i>
+                </td>
 
                 <td class="pt-4">
-                    <button class="btn btn-primary bg-primary me-3">Buy</button> <button class="btn btn-danger bg-danger" (click)="removeItem(i)"> 
-                    <fa-icon [icon]="faRemove"> </fa-icon> </button> </td>
+                    <button class="btn btn-primary bg-primary me-3">Buy</button> <button
+                        class="btn btn-danger bg-danger" (click)="removeItem(i)">
+                        <fa-icon [icon]="faRemove"> </fa-icon> </button>
+                </td>
 
             </tbody>
             <tfoot class="bg-white w-100">
                 <td style="width:20%"> </td>
                 <td style="width:20%"> </td>
                 <td style="width:20%">The Grand Total amount is : </td>
-                <td class="pt-2 text-center h-auto" style="width:30%"> <b class="bg-warning h-auto w-auto rounded-circle"> {{GrandTotal}} $ </b> </td>
+                <td class="pt-2 text-center h-auto" style="width:30%"> <b
+                        class="bg-warning h-auto w-auto rounded-circle"> {{GrandTotal}} $ </b> </td>
                 <td style="width:10%"> </td>
             </tfoot>
 
@@ -58,19 +65,15 @@
         <div>
             <img src={{popupObj.image}} alt="" class="popupImg">
         </div>
-       <aside>
-        <div>
-            <b>Brand : {{popupObj.title}} </b>
-        </div>
-        <div>
-           <p>Price : <b> {{popupObj.price}} </b> </p>
-        </div>
-       </aside>
+        <aside>
+            <div>
+                <b>Brand : {{popupObj.title}} </b>
+            </div>
+            <div>
+                <p>Price : <b> {{popupObj.price}} </b> </p>
+            </div>
+        </aside>
 
     </div>
 
 </ng-template>
-
-
-
-

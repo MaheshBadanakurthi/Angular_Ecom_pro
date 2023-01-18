@@ -112,21 +112,21 @@
 
                 <input type="text" class="form-control w-75" placeholder="Enter Product Name" value="{{editPro_name}}"
                     [(ngModel)]="editPro_name" name="editProName"><br>
-                
-                    <div *ngFor="let imgurl of editUrls;let i=index" class="d-flex">
-                        <input type="text" class="form-control w-75 mt-1" placeholder="enter img url"
-                            [(ngModel)]='imgurl.urls' name="imgurl">
-                        <button class="btn btn-danger" (click)="removeUrl(i)"> - </button>
-                    </div>
-                 
+
+                <div *ngFor="let imgurl of editUrls;let i=index" class="d-flex">
+                    <input type="text" class="form-control w-75 mt-1" placeholder="enter img url"
+                        [(ngModel)]='imgurl.urls' [name]="nameUrlArr[i]">
+                    <button class="btn btn-danger" (click)="removeUrl(i)"> - </button>
+                </div>
+
                 <table>
                     <tr *ngFor="let sellers of editSellers; let i=index">
                         <!-- below we are using two way binding to edit the data n get -->
-                        <td> <input type="number" [(ngModel)]='sellers.sell_price' name=`sellPrice`
+                        <td> <input type="number" [(ngModel)]='sellers.sell_price' [name]="priceArr[i]"
                                 class="form-control w-75"> </td>
-                        <td> <input type="text" [(ngModel)]='sellers.sell_desc' name=`sellDesc`
+                        <td> <input type="text" [(ngModel)]='sellers.sell_desc' [name]="descArr[i]"
                                 class="form-control w-100"> </td>
-                        <td> <input type="text" [(ngModel)]='sellers.sell_brand' name=`sellBrand`
+                        <td> <input type="text" [(ngModel)]='sellers.sell_brand' [name]="brandArr[i]"
                                 class="form-control w-75"> </td>
                         <button class="btn btn-danger" (click)="removeSellerDetails(i)"> - </button>
                     </tr>

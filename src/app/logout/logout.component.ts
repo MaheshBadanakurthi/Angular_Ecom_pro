@@ -9,20 +9,20 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent {
 
-constructor( private homeroute:Router){  }
-logout(){
-      sessionStorage.clear();
-      console.log('session storage cleared');
-      if(sessionStorage){
-        Swal.fire({
-          icon:'success',
-          title:'LogOut succesful'
-        })
-      }
-      this.homeroute.navigate(['home'])
-      
+  constructor(private homeroute: Router) { }
+  logout() {
+    sessionStorage.clear();
+    console.log('session storage cleared');
+    if (sessionStorage) {
+      Swal.fire({
+        icon: 'success',
+        title: 'LogOut succesful'
+      })
+    }
+    this.homeroute.navigate(['home'])
+
   }
-  toProducts(){
+  toProducts() {
     this.homeroute.navigate(['products'])
   }
 
