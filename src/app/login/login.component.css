@@ -39,3 +39,15 @@
    margin-left: -30px;
 }
 
+.facebook{
+    font-size: 30px;
+    color: blue;
+}
+.instagram{
+    font-size: 30px;
+    color: rgb(199, 5, 199);
+}
+.google{
+    font-size: 30px;
+    color: green;
+}

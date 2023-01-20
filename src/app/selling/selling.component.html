@@ -1,17 +1,14 @@
-<div class="maindiv">
-    <div class="container d-flex sellingdiv">
+<div class="maindiv" [ngClass]="newClass ? 'myClass' : 'mb'">
         <div>
             <button class="btn btn-primary text-black">
-                <a routerLink="addsellproduct" routerLinkActive="routerActive" class="text-white"> Add Sell Product</a>
+                <a routerLink="addsellproduct" routerLinkActive="routerActive" class="text-white "  (click)="sellDivDecrease()"> Add Sell Product</a>
             </button>
         </div>
         <div>
-            <button class="btn btn-danger rounded-circle ms-5">
-                <a routerLink="viewsellproduct" routerLinkActive="routerActive" class="text-white ">See Sell Product</a>
+            <button class="btn btn-danger ms-5">
+                <a routerLink="viewsellproduct" routerLinkActive="routerActive" class="text-white"  (click)="sellDivDecrease()">See Sell Product</a>
             </button>
         </div>
-    </div>
-
 </div>
 
 <router-outlet></router-outlet>

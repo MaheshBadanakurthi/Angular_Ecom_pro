@@ -57,11 +57,11 @@ export class SellingproductComponent implements OnInit {
   carouselImgArr: any[] = []
   showCarouselPopup(myCarousel: any, index: number) {
     this.bsModal.open(myCarousel);
-    console.log(this.lsForSellProduct[index].pro_url);
+    // console.log(this.lsForSellProduct[index].pro_url);
     this.carouselImg = this.lsForSellProduct[index].pro_url
-    console.log(this.carouselImg);
+    // console.log(this.carouselImg);
     this.carouselImgArr = this.carouselImg.map((each: any) => `${each.urls}`)
-    console.log(this.carouselImgArr);
+    // console.log(this.carouselImgArr);
   }
   // below executing after click on details.
   itemDetails: any = {}
@@ -71,21 +71,20 @@ export class SellingproductComponent implements OnInit {
     this.detailsIndex = index;
     this.bsModal.open(itemDetails)
     this.itemDetails = this.lsForSellProduct[index]
-    console.log(this.itemDetails);
+    // console.log(this.itemDetails);
     // below sellers are used give seller info after we click ther details button
     this.sellers = this.lsForSellProduct[index].Sellers;
-    console.log(this.sellers);
+    // console.log(this.sellers);
   }
   // showing for sellers popup to direct to cart
   addItemtoCartSellers(index: number) {
-    console.log(index);
     console.log(this.sellers[index]);
-    let x = {
+    let myObj = {
       image: this.lsForSellProduct[this.detailsIndex].pro_url[0].urls,
       price: this.sellers[index].sell_price,
       title: this.sellers[index].sell_brand,
     }
-    this.myCartS.addItemToCart(x)
+    this.myCartS.addItemToCart(myObj)
     Swal.fire({
       icon: 'success',
       title: "Item added to the cart"
@@ -93,7 +92,12 @@ export class SellingproductComponent implements OnInit {
   }
   // IN below functionality I used cart service to store data n display in Details component
   seeProductDetails(index: number) {
-    this.myCartS.show_Pro_Details(this.lsForSellProduct[index])
+    this.myCartS.show_Pro_Details(this.lsForSellProduct[index]);
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
     this.route.navigate(['/show_pro_Details'])
   }
   // below functionality for shiwing to change data based on category.
@@ -103,6 +107,7 @@ export class SellingproductComponent implements OnInit {
       return this.lsForSellProduct = this.sellingProductArr
     }
     else {
+      // filter gives the total object where it matches.
       this.lsForSellProduct = this.sellingProductArr.filter((each: any) => {
         return each.category == catgeroyName;
       })
@@ -115,7 +120,6 @@ export class SellingproductComponent implements OnInit {
       left: 0,
       behavior: 'smooth'
     });
-
   }
 
 }

@@ -4,8 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { faE, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
-import { JsonPipe } from '@angular/common';
-
+ 
 @Component({
   selector: 'app-selling',
   templateUrl: './selling.component.html',
@@ -16,10 +15,10 @@ export class SellingComponent {
   faDelete = faTrashCan;
   faEdit = faEdit;
   faCart = faShoppingCart
-  editPro_id: any
-  editPro_name: any
-  editPro_desc: any
-  editPro_price: any
+  editPro_id: number;
+  editPro_name: string;
+  editPro_desc: string;
+  editPro_price: number
   userPro: any = {}
 
   product_form = new FormGroup({
@@ -43,7 +42,9 @@ export class SellingComponent {
   }
 
   sellingProductsArr: any = []
-  constructor(private Pro_Model: NgbModal) { }
+  constructor(private Pro_Model: NgbModal) {  
+
+  }
   // below is used to open bootstrap model to add product
   addProductDetails(modalData: any) {
     this.Pro_Model.open(modalData)
@@ -89,7 +90,6 @@ export class SellingComponent {
     this.Pro_Model.open(editDetails)
   }
 
-
   updateEditedDetails() {
     console.log(this.indexForUpdateDetails);
     let updateObj = {
@@ -106,5 +106,12 @@ export class SellingComponent {
     // console.log( lsToUpdate[this.indexForUpdateDetails] );
     this.Pro_Model.dismissAll()
   }
+
+  newClass:boolean
+  sellDivDecrease(){
+     this.newClass=true
+  }
+
+
 
 }

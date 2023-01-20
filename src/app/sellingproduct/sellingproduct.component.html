@@ -1,24 +1,28 @@
 <div class="container">
-    <h1 class="text-warning fs-1 text-center mt-5 bg-black"> Selling Products </h1>
-    <div class="d-flex">
-        <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGThia58rBl2fEO26emVyePy40hj1MQUokEg&usqp=CAU"
-                alt="All" class="categoryImg" (click)="categoryFilter('all')">
-            <img src="https://media.istockphoto.com/id/1249381950/vector/various-smiling-and-laughing-happy-emoticons.jpg?b=1&s=612x612&w=0&k=20&c=8xc8KO8Q_AcDnPiAoK4hVK2cW2Dxtnh98oDGX-s-Kv8="
-                alt="smiley" class="categoryImg" (click)="categoryFilter('smiley')">
+    
+    <h6 class="text-white fs-6 text-center mt-3 bg-black rounded-pill"> Do Your 𝒮𝒽𝑜𝓅𝓅𝒾𝓃𝑔 with Happyness </h6>
+
+    <h1 class="text-black fs-1 text-center mt-3 sellProHeader"> ☞ó ͜つò☞ 𝓢𝓮𝓵𝓵 𝓟𝓻𝓸𝓭𝓾𝓬𝓼 </h1>
+   
+    <div class="d-flex mt-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGThia58rBl2fEO26emVyePy40hj1MQUokEg&usqp=CAU"
+                alt="All" class="categoryImgLink" (click)="categoryFilter('all')">
+                <img src="https://media.istockphoto.com/id/1249381950/vector/various-smiling-and-laughing-happy-emoticons.jpg?b=1&s=612x612&w=0&k=20&c=8xc8KO8Q_AcDnPiAoK4hVK2cW2Dxtnh98oDGX-s-Kv8="
+                alt="smiley" class="categoryImgLink" (click)="categoryFilter('smiley')">
             <img src="https://icon2.cleanpng.com/20180517/wbq/kisspng-flowerpot-houseplant-window-blinds-shades-5afe33c897e3b1.3238765115266088406221.jpg"
-                alt=" desk plant" class="categoryImg" (click)="categoryFilter('desk plant')">
+                alt=" desk plant" class="categoryImgLink" (click)="categoryFilter('desk plant')">
             <img src="https://media.istockphoto.com/id/1079117394/photo/great-sneaker.jpg?s=612x612&w=0&k=20&c=fJC7xIo9Umddw2TMF7nyUFHIThbi4zV2zvoXEIevRUI="
-                alt="Shoe" class="categoryImg" (click)="categoryFilter('shoes')">
-            <img src="https://assets.ajio.com/medias/sys_master/root/20210403/1V0O/606861eff997dd7b645d17f0/dillinger_navy_blue_crew-neck_t-shirt_with_contrast_taping.jpg"
-                alt="t-SHirt" class="categoryImg" (click)="categoryFilter('tshirts')">
+                alt="Shoe" class="categoryImgLink" (click)="categoryFilter('shoes')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5MJT_2_0ULEbuqlq_4trJoU0eCPXmb9izHg&usqp=CAU"
+                alt="t-SHirt" class="categoryImgLink" (click)="categoryFilter('tshirts')">
             <img src="https://bd.gaadicdn.com/processedimages/bajaj/bajaj-pulsar-200-ns/494X300/bajaj-pulsar-200-ns61543f2cb9722.jpg?impolicy=resize&imwidth=360"
-                alt="bike" class="categoryImg" (click)="categoryFilter('bikes')">
+                alt="bike" class="categoryImgLink" (click)="categoryFilter('bikes')">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1BoGo9TEZqtQXzs1ymYa-TqNsOr8W42g0voiWqW3bqIVi1EA7QIUaCEa6hdA3L6qiTd8&usqp=CAU"
-                alt="mobile" class="categoryImg" (click)="categoryFilter('mobiles')">
-        </div>
+                alt="mobile" class="categoryImgLink" (click)="categoryFilter('mobiles')">
+        
     </div>
-    <div>
+   
+    <div class="mt-5">
         <div *ngFor="let sellProduct of lsForSellProduct; let i=index" class="forProduct">
             <div>
                 <img src={{sellProduct.pro_url[0].urls}} alt="image" class="productImg" data-bs-toogle="modal"

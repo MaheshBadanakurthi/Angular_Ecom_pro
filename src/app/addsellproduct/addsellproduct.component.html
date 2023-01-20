@@ -21,8 +21,10 @@
             <td style="width: 25%;"> {{product.pro_url | json}}</td>
             <td style="width: 40%;" class="pe-5">
                 <button class="btn btn-primary text-black"><fa-icon [icon]="faCart"></fa-icon></button>
+
                 <button class="btn btn-primary text-black ms-2" (click)="edit_Pro_Details(Edit_product_Details,i)"
                     data-bs-toggle="modal" data-bs-target="#Edit_product_Details">
+
                     <fa-icon [icon]="faEdit"></fa-icon></button>
                 <button class="btn btn-danger text-black ms-2" (click)="productRemove(i)"> <fa-icon
                         [icon]="faDelete"></fa-icon> </button>
@@ -115,20 +117,21 @@
 
                 <div *ngFor="let imgurl of editUrls;let i=index" class="d-flex">
                     <input type="text" class="form-control w-75 mt-1" placeholder="enter img url"
-                        [(ngModel)]='imgurl.urls' [name]="nameUrlArr[i]">
+                        [(ngModel)]='imgurl.urls'  name="imgUrl_{{i}}">
+                        <!-- in above line name is dynamically changes. -->
                     <button class="btn btn-danger" (click)="removeUrl(i)"> - </button>
                 </div>
 
                 <table>
-                    <tr *ngFor="let sellers of editSellers; let i=index">
+                    <tr *ngFor="let sellers of editSellers; let i_Val=index">
                         <!-- below we are using two way binding to edit the data n get -->
-                        <td> <input type="number" [(ngModel)]='sellers.sell_price' [name]="priceArr[i]"
+                        <td> <input type="number" [(ngModel)]='sellers.sell_price'  name="price_{{i_Val}}"
                                 class="form-control w-75"> </td>
-                        <td> <input type="text" [(ngModel)]='sellers.sell_desc' [name]="descArr[i]"
+                        <td> <input type="text" [(ngModel)]='sellers.sell_desc' name="desc_{{i_Val}}"
                                 class="form-control w-100"> </td>
-                        <td> <input type="text" [(ngModel)]='sellers.sell_brand' [name]="brandArr[i]"
+                        <td> <input type="text" [(ngModel)]='sellers.sell_brand' name="brand_{{i_Val}}"
                                 class="form-control w-75"> </td>
-                        <button class="btn btn-danger" (click)="removeSellerDetails(i)"> - </button>
+                        <button class="btn btn-danger" (click)="removeSellerDetails(i_Val)"> - </button>
                     </tr>
                 </table>
             </div>

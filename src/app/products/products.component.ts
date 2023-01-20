@@ -14,13 +14,13 @@ export class ProductsComponent implements OnInit, DoCheck {
 
   searchProducts: any;
   myProducts: any = []
-  prod_index: any;
+  prod_index: number;
   closeModal: any;
   faCartIcon = faCartArrowDown;
   myLoader: boolean = true;
   // below variable is used to store objects
-  cartArr: any;
-  cartServiceArr: any;
+  cartArr: any=[]
+  cartServiceArr: any=[]
   cartIds: number[] = []
 
   constructor(private myapi: MyproductapiService, private modalService: NgbModal, private myCartService: CartService) {  }
@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit, DoCheck {
     console.log(this.myProducts);
   }
 
-  addToCart(index: any) {
+  addToCart(index: number) {
     this.cartArr = this.myProducts[index]
     console.log(this.cartArr);
     //  below we used cart service and we are calling a method from it to store our obj.
@@ -51,7 +51,7 @@ export class ProductsComponent implements OnInit, DoCheck {
     })
   }
 
-  showProductDetails(content: any, indexValue: any) {
+  showProductDetails(content: any, indexValue: number) {
     this.modalService.open(content)
     console.log(indexValue);
     this.prod_index = indexValue

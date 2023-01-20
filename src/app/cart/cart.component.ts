@@ -33,7 +33,7 @@ export class CartComponent implements OnInit, DoCheck {
       // console.log();
     }
     else {
-      this.GrandTotal = (this.priceArr.reduce((x: number, y: number) => (x + y))).toFixed(2);
+      this.GrandTotal = (this.priceArr.reduce((x: number, y: number) => x + y)).toFixed(2);
     }
   }
 
@@ -55,7 +55,7 @@ export class CartComponent implements OnInit, DoCheck {
   }
   // Removing item index is passing from Cart component but delets from Cart service.
   removeItem(removeIndex: number) {
-    console.log(removeIndex);
+    console.log(removeIndex); 
     this.priceArr.splice(removeIndex, 1)
     this.toCartArr.deleteItem(removeIndex)
   }

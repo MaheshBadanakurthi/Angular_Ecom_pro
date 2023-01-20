@@ -28,7 +28,7 @@ export class AddsellproductComponent implements OnInit {
   editPro_desc: string;
   editPro_url: any
   editPro_price: number
-  sellingProductsArr: any
+  sellingProductsArr: any=[ ]
   storingLSdata: any;
 
   product_form: FormGroup
@@ -109,10 +109,12 @@ export class AddsellproductComponent implements OnInit {
       pro_url: this.pro_URL?.value,
       Sellers: this.seller?.value
     }
-    console.log(userPro);
+    // console.log(userPro);
     this.sellingProductsArr.push(userPro)
-    console.log(this.sellingProductsArr);
+    // console.log(this.sellingProductsArr);
+
     localStorage.setItem("selling_Products", JSON.stringify(this.sellingProductsArr))
+
     this.product_form.reset()
     this.Pro_Model.dismissAll()
   }
@@ -136,39 +138,28 @@ export class AddsellproductComponent implements OnInit {
   editsell_price: number;
   editsell_desc: string;
   editsell_brand: string;
-  // below are used in edit n update to iterate input types to avoid getting same input values while clicking the edit.
-  nameUrlArr: string[] = ['url1', 'url2', 'url3', 'url4', 'url5', 'url6'];
-  priceArr: string[] = ['price1', 'price2', 'price3', 'price4', 'price6', 'price5'];
-  descArr: string[] = ['desc1', 'desc12', 'desc13', 'desc4', 'desc5', 'desc6'];
-  brandArr: string[] = ['brand1', 'brand2', 'brand3', 'brand4', 'brand5', 'brand6'];
-
 
   edit_Pro_Details(editDetails: any, editIndex: number) {
     this.indexForUpdateDetails = editIndex;
-
-    console.log(editIndex)
 
     this.editCatg = this.sellingProductsArr[editIndex].category;
     this.editPro_id = this.sellingProductsArr[editIndex].pro_id,
       this.editPro_name = this.sellingProductsArr[editIndex].pro_name,
       this.editSellers = this.sellingProductsArr[editIndex].Sellers;
     this.editUrls = this.sellingProductsArr[editIndex].pro_url
+    
     console.log(this.editSellers);
     console.log(this.editUrls);
-
+    // below is used to open model popup
     this.Pro_Model.open(editDetails)
   }
-
-
   // after editing, below functionality used for update that details.
   updatedData: any = {}
   updateEditedDetails() {
-
     console.log(this.indexForUpdateDetails);
     console.log(this.editCatg, this.editPro_id, this.editPro_name);
     console.log(this.editSellers);
     console.log(this.editUrls);
-
     //  my sell pro arr
     this.updatedData = {
       category: this.editCatg,
@@ -177,15 +168,14 @@ export class AddsellproductComponent implements OnInit {
       Sellers: this.editSellers,
       pro_url: this.editUrls
     }
-    console.log(this.updatedData);
-    console.log(this.sellingProductsArr);
+    // console.log(this.updatedData);
+    // console.log(this.sellingProductsArr);
     this.sellingProductsArr[this.indexForUpdateDetails] = this.updatedData
-    console.log(this.sellingProductsArr);
+    // console.log(this.sellingProductsArr);
     localStorage.setItem("selling_Products", JSON.stringify(this.sellingProductsArr))
-
+// below is for close the modal popup
     this.Pro_Model.dismissAll()
   }
-
   // below is remove urls
   removeUrl(index: number) {
     console.log(index);

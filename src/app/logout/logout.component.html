@@ -14,7 +14,34 @@
                 </div>
             </div>
         </div>
-
+    </div>
 
     </div>
-</div>
+
+    <!-- <div class="bg-secondary">
+        <div class="container mt-5 text-center">
+            <h3 class="mb-5 fs-1 text-white">Angular Image Crop Example</h3>
+            <div class="col-md-12">
+              <input type="url" (change)="onFileChange($event)" />
+            </div>
+            <div class="col-md-8">
+              <image-cropper 
+                [imageChangedEvent]="imgChangeEvt" 
+                [maintainAspectRatio]="true" 
+                [aspectRatio]="4 / 4"
+                [resizeToWidth]="512" 
+                format="png" 
+                (imageCropped)="cropImg($event)" 
+                (imageLoaded)="imgLoad()"
+                (cropperReady)="initCropper()" 
+                (loadImageFailed)="imgFailed()">
+              </image-cropper>
+            </div>
+            <div class="col-md-4 bg-danger ">
+              <h6 class="text-white fs-3">Image Preview</h6>
+              <img [src]="cropImgPreview" />
+            </div>
+           
+          </div>
+    </div> -->
+
